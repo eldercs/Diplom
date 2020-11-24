@@ -1,0 +1,74 @@
+@text:rgb(51, 49, 44); // цвет текста в header
+.header{
+    background-color:rgb(243, 247, 215);
+}
+.header-logo{
+    margin-left:20px;
+}
+.header-top{
+    background:rgb(230, 224, 154);
+    font-size: 18px;
+    line-height: 24px;
+    color:@text;  
+    height:80px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.main-header{
+    display:flex;
+    justify-content: space-between;
+    width:1200px;
+    margin:0 auto;
+    height:40px;
+}
+.header-item{
+    display:flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        list-style-type: none; /* Убираем маркеры */
+    }
+}
+
+.dadayan{
+    position: relative;
+    margin-top:-5px;
+    min-width:170px;
+}
+.add-number{
+    background-color:red;
+    height:50px;
+    text-align:center;
+    border:none;
+    border-radius: 5%;
+    padding:11px 26px;
+    margin-top:-5px;
+    margin-right:20px;
+    font-weight: 600;
+    a{
+        color:white;
+    }
+}
+.register, .auto{
+    padding:8px 15px;
+    a{
+        color:@text;
+    }
+}
+
+.promo__list{
+    display:flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding:0 20px;
+    a{
+        font-size:18px;
+        color:rgb(48, 151, 177);
+    }
+}
+.header-nav{
+    width:1200px;
+    margin:0 auto;
+}
