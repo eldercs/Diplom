@@ -23,7 +23,7 @@
 
             
                 <ul class="header-item">
-                    <li class = "add-number"><a href =  "nothing.html" class = "nav-button">Добавить номер</a></li>
+                    <li class = "add-number"><a href =  "add.html" class = "nav-button">Добавить номер</a></li>
                     <li class = "register"><a href = "sign-up.html" class = "nav-button">Зарегистрироваться</a></li>
                     <li class = "auto"><a href =  "login.html" class = "nav-button">Авторизоваться</a></li>
                 </ul>
@@ -56,19 +56,19 @@
             </nav>
         </header>
         <main>
-            <form class="form container"  method="post"> 
+            <form class="form container-login"  method="post"> 
                 <h2>Вход</h2>
                 <div class="form__item">
                   <label for="email">E-mail*</label>
-                  <input id="email" type="text" name="email" placeholder="Введите e-mail" required>
+                  <input id="email" class ="login-email" type="text" name="email" placeholder="Введите e-mail" required>
                  <!--  <span class="form__error">Введите e-mail</span> -->
                 </div>
                 <div class="form__item form__item--last">
                   <label for="password">Пароль*</label>
-                  <input id="password" type="text" name="password" placeholder="Введите пароль" required>
+                  <input id="password" class ="login-password" type="text" name="password" placeholder="Введите пароль" required>
                 <!--   <span class="form__error">Введите пароль</span> -->
                 </div>
-                <button class = "red__button" type="submit" class="button">Войти</button>
+                <button class = "button__login red__button" type="submit" class="button">Войти</button>
               </form>
         </main>
         <footer class = "page-footer footer-login">
