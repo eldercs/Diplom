@@ -66,10 +66,10 @@
             </p>
             <ul class = "social">
                 <li>
-                    <a href= "#" class = "vk-icon" alt = "ВКонтакте"><img src="/build/img/vk.svg" alt="vk" height = "30"></a>
+                    <a href= "#" class = "vk-icon"><img src="/build/img/vk.svg" alt="vk" height = "30"></a>
                 </li>
                 <li>
-                    <a href="#" class = "telegram-icon" alt = "Telegram" ><img src="/build/img/telegram.svg" alt="telegram" height = "25" width = "25"></a>
+                    <a href="#" class = "telegram-icon"><img src="/build/img/telegram.svg" alt="telegram" height = "25" width = "25"></a>
                 </li>
             </ul>
             <div class = "email">
@@ -77,7 +77,7 @@
              <p class = "email__grow">deny_1999@Ukr.net</p>
             </div> 
             <div class="develop">
-                <p>Разработано -  <br><p1>denis.ua</p1></p>
+                <p>Разработано -  <br></p><p>denis.ua</p>
             </div>
         </div>
     </footer>
