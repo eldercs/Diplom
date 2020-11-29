@@ -4,13 +4,13 @@
         <meta charset = "UTF-8">
         <meta name ="viewport" content="width=device-width,intial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-        <link rel="stylesheet"  href="build/css/style.css" />
+        <link rel="stylesheet"  href="/build/css/style.css" />
     </head>
     <body>
         <header class = "header">
             <div class = "header-top">
             <div class="main-header">
-                <a href="index.html" class="header-logo">
+                <a href="index.php" class="header-logo">
                     <img src="/build/img/dadayan.png" alt="dadayan" class = "dadayan"  >
                     <!-- <svg class = "dadayan"
                     xmlns="http://www.w3.org/2000/svg"
@@ -22,9 +22,9 @@
 
             
                 <ul class="header-item">
-                    <li class = "add-number"><a href =  "add.html" class = "nav-button">Добавить номер</a></li>
-                    <li class = "register"><a href = "sign-up.html" class = "nav-button">Зарегистрироваться</a></li>
-                    <li class = "auto"><a href = "login.html" class = "nav-button">Авторизоваться</a></li>
+                    <li class = "add-number"><a href =  "add.php" class = "nav-button">Добавить номер</a></li>
+                    <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
+                    <li class = "auto"><a href = "login.php" class = "nav-button">Авторизоваться</a></li>
                 </ul>
             </div>
             </div>
@@ -71,7 +71,7 @@
             <ul class = "lots__list">
                 <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="build/img/1.jpg" width="350" height="260" alt="Home1">
+                      <img src="/build/img/1.jpg" width="350" height="260" alt="Home1">
                     </div>
                     <div class="lot__info">
                       <h3 class="lot__title"><a class="text-link" href="number.html">Luxur 3 Bedroom</a></h3>
@@ -79,16 +79,13 @@
                       <div class="lot__state">
                         <div class="lot__rate">
                           <span class="lot__cost">От 15 999<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer timer--finishing">
-                          00:54:12
                         </div>
                       </div>
                     </div>
                   </li>
                   <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="build/img/3.jpg" width="350" height="260" alt="Home1">
+                      <img src="/build/img/3.jpg" width="350" height="260" alt="Home1">
                     </div>
                     <div class="lot__info">
                       <h3 class="lot__title"><a class="text-link" href="number.html">Luxur 3 Bedroom</a></h3>
@@ -96,16 +93,13 @@
                       <div class="lot__state">
                         <div class="lot__rate">
                           <span class="lot__cost">От 15 999<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer timer--finishing">
-                          00:54:12
                         </div>
                       </div>
                     </div>
                   </li>
                   <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="build/img/4.jpg" width="350" height="260" alt="Home1">
+                      <img src="/build/img/4.jpg" width="350" height="260" alt="Home1">
                     </div>
                     <div class="lot__info">
                       <h3 class="lot__title"><a class="text-link" href="number.html">Luxur 3 Bedroom</a></h3>
@@ -113,16 +107,13 @@
                       <div class="lot__state">
                         <div class="lot__rate">
                           <span class="lot__cost">От 15 999<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer timer--finishing">
-                          00:54:12
                         </div>
                       </div>
                     </div>
                   </li>
                   <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="build/img/2.jpg" width="350" height="260" alt="Home3">
+                      <img src="/build/img/2.jpg" width="350" height="260" alt="Home3">
                     </div>
                     <div class="lot__info">
                       <h3 class="lot__title"><a class="text-link" href="number.html">Luxur 3 Bedroom</a></h3>
@@ -131,15 +122,13 @@
                         <div class="lot__rate">
                           <span class="lot__cost">От 15 999<b class="rub">р</b></span>
                         </div>
-                        <div class="lot__timer timer timer--finishing">
-                          00:54:12
-                        </div>
+                        
                       </div>
                     </div>
                   </li>
                   <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="build/img/6.jpg" width="350" height="260" alt="Home">
+                      <img src="/build/img/6.jpg" width="350" height="260" alt="Home">
                     </div>
                     <div class="lot__info">
                       <h3 class="lot__title"><a class="text-link" href="number.html">Luxur 3 Bedroom</a></h3>
@@ -148,9 +137,7 @@
                         <div class="lot__rate">
                           <span class="lot__cost">От 15 999<b class="rub">р</b></span>
                         </div>
-                        <div class="lot__timer timer timer--finishing">
-                          00:54:12
-                        </div>
+                       
                       </div>
                     </div>
                   </li>
@@ -180,4 +167,5 @@
             </div>
         </div>
     </footer>
+    </body>
 </html>

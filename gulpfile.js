@@ -72,10 +72,10 @@ gulp.task('img-compress', ()=>{
 })
 function watch(){
     browserSync.init({
-            proxy:"diplom",
+            proxy:"diplom/templates",
             notify:false,
             https: false,
-           // index: "index.php"
+          //  index: "index.html",
            
      /*    server: {
             baseDir: "."
@@ -90,7 +90,7 @@ function watch(){
     //обновление js файлов
    // gulp.watch('./js/**/*js', scripts)
     
-    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch("./templates/*.html").on('change', browserSync.reload);
     gulp.watch("./*.php").on('change', browserSync.reload);
 }
 

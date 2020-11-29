@@ -5,13 +5,13 @@
         <meta name ="viewport" content="width=device-width,intial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
-        <link rel="stylesheet"  href="build/css/style.css" />
+        <link rel="stylesheet"  href="/build/css/style.css" />
     </head>
     <body>
         <header class = "header">
             <div class = "header-top">
             <div class="main-header">
-                <a href="index.html" class="header-logo">
+                <a href="index.php" class="header-logo">
                     <img src="/build/img/dadayan.png" alt="dadayan" class = "dadayan"  >
                     <!-- <svg class = "dadayan"
                     xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
 
             
                 <ul class="header-item">
-                    <li class = "add-number"><a href =  "nothing.html" class = "nav-button">Добавить номер</a></li>
-                    <li class = "register"><a href = "sign-up.html" class = "nav-button">Зарегистрироваться</a></li>
-                    <li class = "auto"><a href =  "login.html" class = "nav-button">Авторизоваться</a></li>
+                    <li class = "add-number"><a href =  "nothing.php" class = "nav-button">Добавить номер</a></li>
+                    <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
+                    <li class = "auto"><a href =  "login.php" class = "nav-button">Авторизоваться</a></li>
                 </ul>
             </div>
             </div>
@@ -81,6 +81,11 @@
                 <input id="lot-rate" class ="add-price" type="number" name="lot-rate" placeholder="0" required>
             </div>
             </div>
+            <div class="form__item form__item--small">
+                <label for="lot-city">Город</label>
+                    <input id="lot-city" class = "item-city" type="text" name="lot-city" placeholder="Введите город" required>
+                <!--  <span class="form__error">Введите шаг ставки</span>  -->
+            </div>
             <div class="form__item form__item--wide">
               <label for="message">Описание</label>
               <textarea id="message" class = "description" name="message" placeholder="Напишите описание номера" required></textarea>
@@ -95,8 +100,6 @@
                     <span>+ Добавить</span>
                     </label>
                 </div>
-                
-    
               </div>
             </div>
             <!-- <div class="form__container-three">
