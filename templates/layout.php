@@ -55,7 +55,7 @@
                 </section>
             </nav>
         </header>
-    </body>
+
     <main class = "container">
 
     </main>

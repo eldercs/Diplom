@@ -54,7 +54,6 @@
                 </section>
             </nav>
         </header>
-    </body>
     <main class = "main-page">
         <form class = "scan" action="#" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
