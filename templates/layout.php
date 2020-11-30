@@ -55,9 +55,8 @@
                 </section>
             </nav>
         </header>
-
     <main class = "container">
-
+        <?=$page_content;?>
     </main>
     <footer class = "page-footer">
         <div class = "main__footer">

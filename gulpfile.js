@@ -72,7 +72,7 @@ gulp.task('img-compress', ()=>{
 })
 function watch(){
     browserSync.init({
-            proxy:"diplom/templates",
+            proxy:"diplom",
             notify:false,
             https: false,
           //  index: "index.html",

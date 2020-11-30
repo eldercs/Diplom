@@ -1,15 +1,14 @@
 <?php
-require_once "functions.php";
+require_once 'functions.php';
 require_once "init.php";
-
 $errors = [];
 if($_SERVER['REQUEST_METHOD']){
     $pos = $_POST;
     $requared_string = ['email', 'name', 'password', 'contacts'];
     foreach($requared_string as $name){
-        if(!array_key_exists($name, $pos) || empty($pos[$name]){
+        if(!array_key_exists($name, $pos) || empty($pos[$name])){
             $errors[$name]= "Это поле надо заполнить";
-            print($errors[$name]);
+          //  print($errors[$name]);
         }
     }
     if (!empty($_FILES['avatar']['name'])) {
@@ -37,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']){
         mysqli_report(MYSQLI_REPORT_STRICT);
         $emailExists = mysqli_query($con, "SELECT `id` FROM `users` WHERE `email` = '$email'");
         if (mysqli_num_rows($emailExists) > 0) {
-            $errors['email'] = 'Такой E-mail уже существует2';
+            $errors['email'] = 'Такой E-mail уже существует2z';
         } else {
             $passwordHash = password_hash($pos['password'], PASSWORD_DEFAULT);
             try {
@@ -48,16 +47,16 @@ if($_SERVER['REQUEST_METHOD']){
             } catch (Exception $e) {
                 renderErrorTemplate($e->getMessage(), $username);
             }
-            
-           redirectTo('/login.php');
+           header("Location: /login.php");
+           exit();
         }
      
     }
-}
+} 
 $page_content = shablon(
     'sign-up',
     [   
-        'my_array'=> $my_array,
+        //'my_array' => $my_array,
         'errors' => $errors,
     ]
     
@@ -65,10 +64,8 @@ $page_content = shablon(
 echo shablon(
     'layout',
     [
-        'my_array' => $my_array,
         'page_content' =>  $page_content, 
         'title' => 'Регистрация',
-        'username' => $username,
     ]
 );
 ?>
