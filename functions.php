@@ -11,4 +11,11 @@ if(file_exists($adress)){
 }
 return $adress_buffer;
 }
+function fetchAll($con, $sql) {
+    if ($result = mysqli_query($con, $sql)) {
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        throw new Exception(mysqli_error($con));
+    }
+}
 ?>

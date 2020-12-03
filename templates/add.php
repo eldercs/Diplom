@@ -1,20 +1,19 @@
-      <form class="form form--add-lot add-container form--invalid" method="post"> <!-- form--invalid -->
+      <form class="form form--add-lot add-container form--invalid"  action="add.php" method="post"enctype="multipart/form-data"> <!-- form--invalid -->
             <h2>Добавление номера</h2>
             <div class="form__container-two">
               <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
                 <label for="lot-name">Название</label>
-                <input id="lot-name" class = "item-name" type="text" name="lot-name" placeholder="Введите название заведения" required>
+                <input id="lot-name" class = "item-name" type="text" name="lot-name" placeholder="Введите название заведения" required value="<?= isset($_POST['name'])? $_POST['name'] : ''; ?>">
                 <!-- <span class="form__error">Введите наименование лота</span> -->
               </div>
               <div class="form__item">
                 <label for="category">Категория</label>
                 <select id="category" name="category" required>
-                  <option>Отели</option>
-                  <option>Апартаменты/квартиры</option>
-                  <option>Курортные отели</option>
-                  <option>Виллы</option>
-                  <option>Шале</option>
-                  <option>Котеджи</option>
+                <option value = "">Выберите категорию</option>
+                <?php
+                foreach($category as $key) : ?>
+                <option name = "category" value="<?=$key['id']; ?>"><?=$key['title'];?></option>
+                <?php endforeach; ?>
                 </select>
                <!--  <span class="form__error">Выберите категорию</span> -->
               </div>
