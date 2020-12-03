@@ -1,6 +1,7 @@
 <?php
 require_once 'functions.php';
 require_once "init.php";
+require_once "username.php";
 
 function sum_price($price){
     $price = ceil($price);
@@ -22,6 +23,7 @@ $page_content = shablon(
 echo shablon(
     'layout',
     [
+        'username' => $username,
         'page_content' =>  $page_content,
         'title' => 'Главная',
     ]

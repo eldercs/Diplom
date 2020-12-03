@@ -1,10 +1,16 @@
 <?php
 require_once 'functions.php';
 require_once "init.php";
+require_once "username.php";
+if($username != null){
+    header("Location: /index.php");
+    exit();
+}
 $errors = [];
+
 if($_SERVER['REQUEST_METHOD']){
     $pos = $_POST;
-    $requared_string = ['email', 'name', 'password', 'contacts'];
+    $requared_string = ['email', 'name', 'password', 'contacts', 'username'];
     foreach($requared_string as $name){
         if(!array_key_exists($name, $pos) || empty($pos[$name])){
             $errors[$name]= "Это поле надо заполнить";
@@ -40,9 +46,9 @@ if($_SERVER['REQUEST_METHOD']){
         } else {
             $passwordHash = password_hash($pos['password'], PASSWORD_DEFAULT);
             try {
-                $sql = "INSERT INTO `users` (`email`, `name`, `password`, `avatar`, `contacts`) VALUES ( ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO `users` (`email`, `name`, `password`, `avatar`, `contacts`, `username`) VALUES ( ?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_prepare($con, $sql);
-                mysqli_stmt_bind_param($stmt, 'sssss', $email, $pos['name'], $passwordHash, $pos['avatar'], $pos['contacts']);
+                mysqli_stmt_bind_param($stmt, 'ssssss', $email, $pos['name'], $passwordHash, $pos['avatar'], $pos['contacts'], $pos['username']);
                 mysqli_stmt_execute($stmt);
             } catch (Exception $e) {
                 renderErrorTemplate($e->getMessage(), $username);
@@ -64,6 +70,7 @@ $page_content = shablon(
 echo shablon(
     'layout',
     [
+        'username' => $username,
         'page_content' =>  $page_content, 
         'title' => 'Регистрация',
     ]

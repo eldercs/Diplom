@@ -24,8 +24,13 @@
             
                 <ul class="header-item">
                     <li class = "add-number"><a href =  "add.php" class = "nav-button">Добавить номер</a></li>
+                    <?php if($username): ?>
+                    <li><?=$username['name']; ?></li>
+                    <li><a href="/logout.php">Выход</a></li>
+                    <?php else: ?>
                     <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
                     <li class = "auto"><a href = "login.php" class = "nav-button">Авторизоваться</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             </div>
