@@ -60,6 +60,13 @@
     min-width:350px;
   }
 }
+
+.lot__info{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-self: center;
+}
 .container{
   width:1200px;
   margin:60px auto;
@@ -105,7 +112,7 @@
   border-radius: 3px;
 }
 .text-link{
-  margin-left: 20px;
+ // margin-left: 20px;
 }
 .form__container{
   input{
@@ -124,4 +131,22 @@
 .message__text{
   height:120px;
 }
+.like{
+  position: relative;
+  top:62px;
+  width:30px;
+  height:30px;
+  background-color: white;
+  background-image:url("/build/img/like.svg");
+  border:none;
+}
 
+.like:active{
+  border:none;
+  background-color:red;
+}
+.like-counter{
+  position: relative;
+  top:55px;
+  right:22px;
+}

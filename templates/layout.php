@@ -38,24 +38,11 @@
                 <section class="main-promo">
                     <h2 class = "visually-hidden">Навигация</h2>
                     <ul class="promo__list">
-                        <li class="promo__item promo__item--otel">
-                            <a class="promo__link" href="all-lots.html">Отели</a>
-                        </li>
-                        <li class="promo__item promo__item--apartmen">
-                            <a class="promo__link" href="all-lots.html">Апартаменты/квартиры</a>
-                        </li>
-                        <li class="promo__item promo__item--kyrort">
-                            <a class="promo__link" href="all-lots.html">Курортные отели</a>
-                        </li>
-                        <li class="promo__item promo__item--villa">
-                            <a class="promo__link" href="all-lots.html">Виллы</a>
-                        </li>
-                        <li class="promo__item promo__item--shale">
-                            <a class="promo__link" href="all-lots.html">Шале</a>
-                        </li>
-                        <li class="promo__item promo__item--cotege">
-                            <a class="promo__link" href="all-lots.html">Котеджи</a>
-                        </li>
+                    <?php
+                    foreach($my_array as $key => $val){
+                    print('<li class = "nav__item"><a href = "all-lots.html">' . $val['title']. '</a></li>' );
+                    }
+                    ?>
                     </ul>
                 </section>
             </nav>

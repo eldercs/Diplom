@@ -7,6 +7,11 @@ if($username != null){
     exit();
 }
 $errors = [];
+try {
+    $my_array = fetchAll($con, 'SELECT *  FROM `category`');
+} catch (Exception $e) {
+    renderErrorTemplate($e->getMessage(), $username);
+}
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $requared = ['email', 'password'];
     $pos = $_POST;
@@ -44,7 +49,8 @@ $page_content = shablon(
 ); 
 echo shablon(
     'layout',
-    [ 
+    [   
+        'my_array' => $my_array,
         'username' => $username,
         'page_content' =>  $page_content, 
         'title' => 'Регистрация',
