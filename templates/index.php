@@ -1,5 +1,5 @@
 
-        <form class = "scan" action="#" method="get">
+        <form class = "scan" action="search.php" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
             <label for="search" class = "label__price">Цена</label>
             <input type="search" class = "scan-price" id = "price_search" name="price_search" placeholder="от:" autocomplete="off">
@@ -32,7 +32,7 @@
                       </form>
                     </div>
               </li>
-              <?php endforeach ?>
+            <?php endforeach ?>
                 <!-- <li class="lots__item lot">
                     <div class="lot__image">
                       <img src="/build/img/1.jpg" width="350" height="260" alt="Home1">

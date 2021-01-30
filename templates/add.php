@@ -19,27 +19,27 @@
         </div>
         <div class = "form__item">
           <label for ="price">Цена</label>
-          <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required>
+          <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required value="<?= isset($_POST['price'])? $_POST['price'] : ''; ?>">
         </div>
       </div>
       <div class="form__item form__item--small">
           <label for="city">Город</label>
-          <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required>
+          <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required value="<?= isset($_POST['city'])? $_POST['city'] : ''; ?>">
                 <!--  <span class="form__error">Введите шаг ставки</span>  -->
       </div>
       <div class="form__item form__item--wide">
         <label for="description">Описание</label>
-        <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required></textarea>
+        <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required value="<?= isset($_POST['description'])? $_POST['description'] : ''; ?>"></textarea>
               <!-- <span class="form__error">Напишите описание номера</span> -->
       </div>
     <div class="form__item form__item--file form__item--last">
       <label>Изображение</label>
-     <!--  <div class="preview">
+       <div class="preview">
         <button class="preview__remove" type="button">x</button>
         <div class="preview__img">
           <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="Изображение номера">
         </div>
-      </div> -->
+      </div> 
       <div class="form__input-file">
         <input class="visually-hidden" type="file" id="photo2" name = "img" value="">
         <label for="photo2">

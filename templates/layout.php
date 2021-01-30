@@ -29,7 +29,7 @@
                     <li><a href="/logout.php">Выход</a></li>
                     <?php else: ?>
                     <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
-                    <li class = "auto"><a href = "login.php" class = "nav-button">Авторизоваться</a></li>
+                    <li class = "auto"><a href = "#openModal" class = "nav-button">Авторизоваться</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -46,6 +46,33 @@
                     </ul>
                 </section>
             </nav>
+            <div id = "openModal" class = "modal">
+                <form action = "login.php"  method = "post" enctype="multipart/form-data">
+                <div class = "modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title">Авторизация</h3>
+                          <a href="#close" text="Close" class="close">×</a>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form__item">
+                                <label for="email">E-mail*</label>
+                                <input id="email" class ="login-email" type="text" name="email" placeholder="Введите e-mail" required>
+                            </div>
+                            <div class="form__item form__item--last">
+                                <label for="password">Пароль*</label>
+                                <input id="password" class ="login-password" type="text" name="password" placeholder="Введите пароль" required>
+                            </div>
+                            <div class="form_button">
+                                <button class = "button__login red__button" type="submit">Войти</button>
+                                <a class="text-register" href="/sign-up.php">Зарегистрироваться</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                </form>
+            </div>
         </header>
     <main class = "container">
         <?=$page_content;?>
