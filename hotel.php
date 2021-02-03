@@ -9,7 +9,8 @@ $key = $_GET['key'] ?? null;
 try {
     $table_array = fetchAll($con, "SELECT * FROM `hotels` ");
     $my_array = fetchAll($con, 'SELECT *  FROM `category`');
-    $row = fetchAll($con, 'SELECT `comment`  FROM `comments`');
+    $comments = fetchAll($con, 'SELECT *  FROM `comments`');
+
 } catch (Exception $e) {
     renderErrorTemplate($e->getMessage(), $username);
 }
@@ -19,7 +20,8 @@ $page_content = shablon(
     [
         'key' => $key, 
         'table_array' => $table_array,
-        'row' => $row,
+        'comments' => $comments,
+        'username' => $username,
     ]
 );
 echo shablon(

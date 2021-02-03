@@ -13,10 +13,12 @@
             <span class="hotel__cost">От <?= htmlspecialchars($table_array[$key]['price']);?><b class="rub">р</b></span>
             <span class="hotel__description"><?= htmlspecialchars($table_array[$key]['description']);?></span>
         </div>
+        <?php if($username): ?>
         <form name="comment" action="comments.php" method="post">
             <p>
-            <label>Имя: <?=htmlspecialchars($table_array[$key]['id']);?></label>
-            <input type="text" name="name" />
+            <label>Имя: </label>
+            <!-- <input type="text" name="name" /> -->
+            <input type = "text" name = "name"  value ="<?=$username['name']; ?>"readonly >
             </p>
         <p>
             <label>Комментарий:</label>
@@ -28,12 +30,14 @@
             <input type="submit" value="Отправить" />
         </p>
         </form>
+        <?php endif; ?>
         <p>
             <label>Комментарии:</label>
             <?php
-            foreach($row as $lol => $val): ?>
+            foreach($comments as $com => $val): ?>
             <br />
-            <textarea name="comment" cols="100" rows="8"><?=htmlspecialchars($val['comment']);?></textarea>
+            <p><?=htmlspecialchars($val['user']);?></p>
+            <textarea name="comment" cols="100" rows="4"><?=htmlspecialchars($val['comment']);?></textarea>
             <?php endforeach ?>
         </p>
         <p>
