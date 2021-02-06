@@ -4,10 +4,14 @@ require_once "init.php";
 require_once "username.php";
 //require_once "comments.php";
 //$key = $_GET['key'] ?? null;
-$lot_id = $_GET['key'] ?? null;
+//$lot_id = $_GET['key'] ?? null;
 $key = $_GET['key'] ?? null;
+$lotId = (isset($_GET['key'])) ? intval($_GET['key']) : null;
 try {
-    $table_array = fetchAll($con, "SELECT * FROM `hotels` ");
+    //$table_array = fetchAll($con, "SELECT * FROM `hotels` ");
+    //$lot = fetchOne($con, "SELECT l.`title`, `img`, `description`, `price`, `end_date`, `bet_step`, `user_id`, c.`title` AS `category` FROM lots l JOIN categories c ON l.`category_id` = c.`id` WHERE `winner_id` IS NULL AND l.`id` = '$lotId'");
+    $table_array = fetchOne($con, "SELECT h.`title`, `price`, `city`, `description`, `img`, `user_id`, `like`, category.`title` AS `category` FROM hotels h JOIN category ON h.`category_id` = category.`id` WHERE  h.`id` = '$lotId'");
+
     $my_array = fetchAll($con, 'SELECT *  FROM `category`');
     $comments = fetchAll($con, 'SELECT *  FROM `comments`');
 
@@ -29,7 +33,7 @@ echo shablon(
     [
         'page_content' =>  $page_content,
         'my_array' => $my_array,
-        'title' => htmlspecialchars($table_array[$key]['title']),
+        'title' => 'Просмотр номера ' . $table_array['title'],
         'username' => $username,
     ]
 );

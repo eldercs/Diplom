@@ -69,6 +69,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $add_st = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($add_st,'ssisss', $pos['name'], $pos['category'], $pos['price'],$pos['city'], $pos['description'], $pos['img']);
         mysqli_stmt_execute($add_st);
+
+        $hotel_id = mysqli_query($con, 'SELECT `id` FROM `hotels` ORDER BY id DESC LIMIT 1');
+        $hotel_id = mysqli_fetch_assoc($hotel_id);
+        $hotel_id = $hotel_id['id'];
+        //echo($hotel_id);
+        $sql = "INSERT INTO `hotel_image` (`id_hotel`, `image`) VALUES (?, ?)";
+        $add_st = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($add_st,'is', $hotel_id, $pos['img']);
+        mysqli_stmt_execute($add_st);
       //  cache_del_data([$_SESSION['user_id']], 'user_fav');
     }
 }

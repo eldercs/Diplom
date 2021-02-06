@@ -18,4 +18,11 @@ function fetchAll($con, $sql) {
         throw new Exception(mysqli_error($con));
     }
 }
+function fetchOne($con, $sql) {
+    if ($result = mysqli_query($con, $sql)) {
+        return mysqli_fetch_array($result, MYSQLI_ASSOC);
+    } else {
+        throw new Exception(mysqli_error($con));
+    }
+}
 ?>

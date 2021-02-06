@@ -41,9 +41,9 @@
         </div>
       </div> 
       <div class="form__input-file">
-        <input class="visually-hidden" type="file" id="photo2" name = "img" value="">
+        <input class="" type="file" id="photo2" name = "img" value="" multiple>
         <label for="photo2">
-          <span>+ Добавить</span>
+          <span>+ Загрузить</span>
         </label>
       </div>
       <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
