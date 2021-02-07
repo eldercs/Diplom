@@ -1,4 +1,62 @@
+<style>
+.one_news span {
+    border: 1px dotted;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 85px;
+}
+.one_news span:hover{
+	border: 1px solid;
+}
+</style>
+<script>
+$(document).ready(function() {
+	$('span#like').click(function(){
+    
+		setVote('like', $(this));
+    //alert("test");
+	});
+});
 
+// type - тип голоса. Лайк или дизлайк
+// element - кнопка, по которой кликнули
+function setVote(type, element){
+	// получение данных из полей
+	var id_user = $('#id_user').val();
+	var id_hotels = element.parent().find('#id_hotels').val();
+	
+	$.ajax({
+		// метод отправки 
+		type: "POST",
+		// путь до скрипта-обработчика
+		url: "/likes_test.php",
+		// какие данные будут переданы
+		data: {
+			'id_hotels': id_hotels, 
+			'id_user': id_user, 
+			'type': type
+		},
+		// тип передачи данных
+		dataType: "json",
+		// действие, при ответе с сервера
+		success: function(data){
+			// в случае, когда пришло success. Отработало без ошибок
+			if(data.result == 'success'){	
+				// Выводим сообщение
+				alert('Голос засчитан');
+				// увеличим визуальный счетчик
+				var count = parseInt(element.find('b').html());
+				element.find('b').html(count+1);
+			}else{
+				// вывод сообщения об ошибке
+				alert(data.msg);
+			}
+		}
+	});
+}
+</script>
         <form class = "scan" action="search.php" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
             <label for="search" class = "label__price">Цена</label>
@@ -16,7 +74,7 @@
               <li class="lots__item lot">
                     <div class="lot__image">
                       <img src="<?= $val['img'];?>" width="350" height="260" alt="Home1">
-                      <p><?=$val['id'];?></p>
+                     <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot__info">
                       <div class="lot__state">
@@ -26,19 +84,24 @@
                           <span class="lot__cost">От <?= $val['price'];?><b class="rub">р</b></span>
                         </div>
                       </div>
-                      <form action="#" method = "post" enctype="multipart/form-data">
-                        <input type="hidden" name = "id_hotel" value ="<?= $val["id"];?>">
-                        <span class = "like-counter"><?= $val['like']; ?></span>
-                        <input type = "button" class="like" name = "like"></input>
-                      </form>
+                      <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+                      <div class="one_news">
+		                    <span id="like">Like (<b><?=$val['count_like'];?></b>)</span>
+		                    <input type="hidden" id="id_hotels" value="<?=$val['id'];?>" />
+	                    </div>
+                        <!-- <script src="src/js/like.js"></script> -->
+                       <!--  <span class = "like-counter"></span>
+                        <input type = "button" class="like" name = "like"></input> -->
+                  <!--     </form> -->
                     </div>
               </li>
             <?php endforeach ?>
             </ul>
         <?=shablon('pager', [
-        'pages' => $pages,
-        'pages_count' => $pages_count,
-        'cur_page' => $cur_page
-          ]); ?>
+          'pages' => $pages,
+          'pages_count' => $pages_count,
+          'cur_page' => $cur_page
+        ]);?>
         </section>
+
 

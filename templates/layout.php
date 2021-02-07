@@ -5,6 +5,7 @@
         <meta name ="viewport" content="width=device-width,intial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
         <title><?= $title ?> </title>
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet"  href="/build/css/style.css" />
     </head>
     <body>

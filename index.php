@@ -26,19 +26,17 @@ $pages_count = ceil($items_count/ $page_items);
 $offset = ($cur_page - 1) * $page_items;
 
 $pages =  range(1,$pages_count);
-
-//$sql = 'SELECT * FROM lots'. ' LIMIT ' . $page_items . ' OFFSET ' . $offset;
-
 $table_array = fetchAll($con, "SELECT * FROM `hotels`  ORDER BY id DESC LIMIT " . $page_items . " OFFSET " . $offset);
-$table_array2 = fetchAll($con, "SELECT * FROM `hotels`");
+//$table_array2 = fetchAll($con, "SELECT * FROM `hotels`");
 $page_content = shablon(
     'index',
     [
         'table_array' => $table_array,
-        'table_array2' => $table_array2,
+        //'table_array2' => $table_array2,
         'pages' => $pages,
         'pages_count' => $pages_count,
-        'cur_page' => $cur_page
+        'cur_page' => $cur_page,
+        'username' => $username,
     ]
 );
 echo shablon(
