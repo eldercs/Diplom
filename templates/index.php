@@ -13,7 +13,7 @@
 </style>
 <script>
 $(document).ready(function() {
-	$('span#like').click(function(){
+	$('button#like').click(function(){
     
 		setVote('like', $(this));
     //alert("test");
@@ -45,13 +45,14 @@ function setVote(type, element){
 			// в случае, когда пришло success. Отработало без ошибок
 			if(data.result == 'success'){	
 				// Выводим сообщение
-				alert('Голос засчитан');
+				//alert('Голос засчитан');
 				// увеличим визуальный счетчик
 				var count = parseInt(element.find('b').html());
 				element.find('b').html(count+1);
 			}else{
 				// вывод сообщения об ошибке
-				alert(data.msg);
+				var count = parseInt(element.find('b').html());
+				element.find('b').html(count-1);
 			}
 		}
 	});
@@ -86,9 +87,18 @@ function setVote(type, element){
                       </div>
                       <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
                       <div class="one_news">
-		                    <span id="like">Like (<b><?=$val['count_like'];?></b>)</span>
+		                    <button class = "like" id="like"><b class = "count__like"><?=$val['count_like'];?></b></button>
+                        <!-- <span class='hidden'>1 Like</span> -->
 		                    <input type="hidden" id="id_hotels" value="<?=$val['id'];?>" />
 	                    </div>
+                     <!--  <script>
+                      $(function(){
+                      $('.like-toggle').click(function(){
+                      $(this).toggleClass('like-active');
+                      $(this).next().toggleClass('hidden');
+                      });
+                      });
+                      </script> -->
                         <!-- <script src="src/js/like.js"></script> -->
                        <!--  <span class = "like-counter"></span>
                         <input type = "button" class="like" name = "like"></input> -->
