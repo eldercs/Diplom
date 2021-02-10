@@ -46,13 +46,13 @@
           <span>+ Загрузить</span>
         </label>
       </div> -->
-      <div class="input__wrapper">
-   <input name="file" type="file" name="file" id="input__file" class="input input__file" multiple>
-   <label for="input__file" class="input__file-button">
-      <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
-      <span class="input__file-button-text">Выберите файл</span>
-   </label>
-</div>
+      <!-- <div class="input__wrapper"> -->
+      <input  type="file" name="img" id="input__file" class="input input__file" multiple>
+      <label for="input__file" class="input__file-button">
+        <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
+        <span class="input__file-button-text">Выберите файл</span>
+      </label>
+<!-- </div> -->
       <script>
     let inputs = document.querySelectorAll('.input__file');
     Array.prototype.forEach.call(inputs, function (input) {
@@ -65,7 +65,7 @@
           countFiles = this.files.length;
   
         if (countFiles)
-          label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
+          label.querySelector('.input__file-button-text').innerText = 'Файл выбран!';
         else
           label.querySelector('.input__file-button-text').innerText = labelVal;
       });

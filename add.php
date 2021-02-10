@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else{
         $pos = array_map('htmlspecialchars', $pos);
-        $sql = "INSERT INTO `hotels` (`user_id`, `title`, `category_id`, `price`, `city`, `description`, `img`) VALUES ('$username[id]', ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `hotels` (`user_id`, `title`, `category_id`, `price`, `city`, `description`, `img`, `count_like`) VALUES ('$username[id]', ?, ?, ?, ?, ?, ?, '1')";
         $add_st = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($add_st,'ssisss', $pos['name'], $pos['category'], $pos['price'],$pos['city'], $pos['description'], $pos['img']);
         mysqli_stmt_execute($add_st);
