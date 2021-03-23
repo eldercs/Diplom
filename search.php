@@ -17,7 +17,7 @@ $search = mysqli_real_escape_string($con, $search);
 $search_price = mysqli_real_escape_string($con, $search_price); */
 if($search) {
     try {
-        $hotels = fetchAll($con, "SELECT h.`id`, h.`title` ,`city`, `price`, `count_like`, c.`title` AS `category` FROM hotels h JOIN category c ON h.`category_id` = c.`id` WHERE (h.`title` LIKE '%$search%' OR `description` LIKE '%$search%')   ORDER BY id DESC");
+        $hotels = fetchAll($con, "SELECT h.`id`, h.`title` ,`city`, `price`, `count_like`, `image`, `category` AS `category` FROM hotels h JOIN hotel_image ON hotel_image.`id_hotel` = h.`id` JOIN category c ON h.`category_id` = c.`id` WHERE (h.`title` LIKE '%$search%' OR `description` LIKE '%$search%') ORDER BY id DESC ");
     } catch (Exception $e) {
         renderErrorTemplate($e->getMessage(), $username);
     }

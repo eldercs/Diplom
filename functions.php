@@ -25,4 +25,7 @@ function fetchOne($con, $sql) {
         throw new Exception(mysqli_error($con));
     }
 }
+function renderErrorTemplate($error, $username) {
+    exit();
+}
 ?>

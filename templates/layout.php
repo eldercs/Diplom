@@ -44,7 +44,7 @@
                     <ul class="promo__list">
                     <?php
                     foreach($my_array as $key => $val){
-                    print('<li class = "nav__item"><a href = "all-lots.html">' . $val['title']. '</a></li>' );
+                    print('<li class = "nav__item"><a href = "all-lots.html">' . $val['category']. '</a></li>' );
                     }
                     ?>
                     </ul>
