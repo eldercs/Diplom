@@ -2,7 +2,7 @@
     <?php foreach($hotels as $val): ?>
         <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['img'];?>" width="350" height="260" alt="Home1">
+                      <img src="<?= $image['image'];?>" width="350" height="260" alt="Home1">
                     </div>
                     <div class="lot__info">
                       <div class="lot__state">
@@ -14,7 +14,7 @@
                       </div>
                       <form action="#" method = "post" enctype="multipart/form-data">
                         <input type="hidden" name = "id_hotel" value ="<?= $val["id"];?>">
-                        <span class = "like-counter"><?= $val['like']; ?></span>
+                        <span class = "like-counter"><?= $val['count_like']; ?></span>
                         <input type = "button" class="like" name = "like"></input>
                       </form>
                     </div>

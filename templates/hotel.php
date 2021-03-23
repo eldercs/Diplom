@@ -2,7 +2,8 @@
     <div>
     <h2><?=htmlspecialchars($table_array['title']);?></h2>
         <div class="lot__image">
-            <img src="<?=$table_array['img'];?>" width="600"  alt="Home1">
+            <img src="<?=$image['image'];?>" width="600"  alt="Home1">
+            <p><?=htmlspecialchars($image['image']);?></p>
         </div>
     </div>
     <div>
@@ -43,6 +44,7 @@
         </p>
         <p>
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
+
         </p>
     </div>
 </section>

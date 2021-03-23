@@ -74,7 +74,7 @@ function setVote(type, element){
             foreach($table_array as $val): ?>
               <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['img'];?>" width="350" height="260" alt="Home1">
+                      <img src="<?= $val['image'];?>" width="350" height="260" alt="Home1">
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot__info">

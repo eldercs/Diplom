@@ -26,6 +26,9 @@
                 <ul class="header-item">
                     <li class = "add-number"><a href =  "add.php" class = "nav-button">Добавить номер</a></li>
                     <?php if($username): ?>
+                    <div class = "user-block">
+                        <img src="<?=$username['avatar']; ?>" width="40" height="40" alt="Пользователь">
+                    </div>
                     <li><?=$username['name']; ?></li>
                     <li><a href="/logout.php">Выход</a></li>
                     <?php else: ?>

@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']){
     if (!empty($_FILES['avatar']['name'])) {
     
         $tmpName = $_FILES['avatar']['tmp_name'];
-        $folder = 'build/img/uploads/';
+        $folder = 'img/uploads/';
         if (!file_exists($folder)) {
             mkdir($folder, 0777, true);
         }
