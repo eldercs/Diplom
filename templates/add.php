@@ -1,4 +1,4 @@
-<form class="form form--add-lot add-container form--invalid"  action="add.php" method="post"enctype="multipart/form-data"> <!-- form--invalid -->
+<form class="form form--add-lot add-container form--invalid"  action="add.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
   <h2>Добавление номера</h2>
     <div class="form__container-two">
         <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
@@ -12,7 +12,7 @@
           <option value = "">Выберите категорию</option>
           <?php
             foreach($my_array as $key) : ?>
-            <option name = "category" value="<?=$key['id']; ?>"><?=$key['title'];?></option>
+            <option name = "category" value="<?=$key['id']; ?>"><?=$key['category'];?></option>
           <?php endforeach; ?>
           </select>
                <!--  <span class="form__error">Выберите категорию</span> -->
@@ -47,7 +47,7 @@
         </label>
       </div> -->
       <!-- <div class="input__wrapper"> -->
-      <input  type="file" name="img" id="input__file" class="input input__file" multiple>
+      <input  type="file" name="img" id="input__file" class="input input__file">
       <label for="input__file" class="input__file-button">
         <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
         <span class="input__file-button-text">Выберите файл</span>

@@ -74,7 +74,7 @@ function setVote(type, element){
             foreach($table_array as $val): ?>
               <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['image'];?>" width="350" height="260" alt="Home1">
+                      <img src="<?= $val['title_image'];?>" width="350" height="260" alt="Home1">
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot__info">
@@ -85,6 +85,18 @@ function setVote(type, element){
                           <span class="lot__cost">От <?= $val['price'];?><b class="rub">р</b></span>
                         </div>
                       </div>
+                      <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
+                      <?php 
+                      if($username){
+                      $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
+                      $result = mysqli_fetch_row($sql);
+                      if($result[0] > 0){ ?>
+                      <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
+                        <input type="hidden" id="delete" name = "delete" value="<?=$val['id'];?>" />
+                        <button type = "submit" class="<?= $hidden; ?> delete">Delete</button>
+                      </form>
+                      <? } 
+                      }?>
                       <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
                       <div class="one_news">
 		                    <button class = "like" id="like"><b class = "count__like"><?=$val['count_like'];?></b></button>
