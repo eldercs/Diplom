@@ -40,37 +40,13 @@
           <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="Изображение номера">
         </div>
       </div> 
-      <!-- <div class="form__input-file">
-        <input class="" type="file" id="photo2" name = "img" value="" multiple>
-        <label for="photo2">
-          <span>+ Загрузить</span>
-        </label>
-      </div> -->
-      <!-- <div class="input__wrapper"> -->
       <input  type="file" name="img" id="input__file" class="input input__file">
       <label for="input__file" class="input__file-button">
         <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
         <span class="input__file-button-text">Выберите файл</span>
       </label>
 <!-- </div> -->
-      <script>
-    let inputs = document.querySelectorAll('.input__file');
-    Array.prototype.forEach.call(inputs, function (input) {
-      let label = input.nextElementSibling,
-        labelVal = label.querySelector('.input__file-button-text').innerText;
-  
-      input.addEventListener('change', function (e) {
-        let countFiles = '';
-        if (this.files && this.files.length >= 1)
-          countFiles = this.files.length;
-  
-        if (countFiles)
-          label.querySelector('.input__file-button-text').innerText = 'Файл выбран!';
-        else
-          label.querySelector('.input__file-button-text').innerText = labelVal;
-      });
-    });
-    </script>
+      <script src = "src/js/file_load.js">  
       <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
     </div>           
   <button type="submit" class="add__button red__button">Добавить лот</button>

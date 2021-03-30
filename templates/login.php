@@ -7,7 +7,7 @@
                 </div>
                 <div class="form__item form__item--last">
                   <label for="password">Пароль*</label>
-                  <input id="password" class ="login-password" type="text" name="password" placeholder="Введите пароль" required>
+                  <input id="password" class ="login-password" type="password" name="password" placeholder="Введите пароль" required>
                 <!--   <span class="form__error">Введите пароль</span> -->
                 </div>
                 <button class = "button__login red__button" type="submit">Войти</button>
