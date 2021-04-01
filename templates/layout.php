@@ -44,7 +44,7 @@
                     <ul class="promo__list">
                     <?php
                     foreach($my_array as $key => $val){
-                    print('<li class = "nav__item"><a href = "all-lots.html">' . $val['category']. '</a></li>' );
+                        print('<li class = "nav__item"><a href = "all-lots.html">' . $val['category']. '</a></li>' );
                     }
                     ?>
                     </ul>
@@ -72,7 +72,6 @@
                                 <a class="text-register" href="/sign-up.php">Зарегистрироваться</a>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
                 </form>

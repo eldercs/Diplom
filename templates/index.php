@@ -10,6 +10,7 @@
 .one_news span:hover{
 	border: 1px solid;
 }
+
 </style>
 <script>
 $(document).ready(function() {
@@ -91,10 +92,28 @@ function setVote(type, element){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
-                      <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
-                        <input type="hidden" id="delete" name = "delete" value="<?=$val['id'];?>" />
-                        <button type = "submit" class="<?=$hidden;?> delete">Delete</button>
-                      </form>
+                      <a href = "#openModal2" class = "close" text="Close">x</a> 
+                      <div id = "openModal2" class = "modal">
+                        <div class = "modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title">Вы уверены, что хотите удалить выбранный номер ?</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form__item">
+                            <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
+                              <input type="hidden" id="delete" name = "delete" value="<?=$val['id'];?>" />
+                              <button type = "submit" class="<?=$hidden;?> delete_button">Да</button>
+                            </form>
+                            <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+                            </div>
+                            <div class="form__item form__item--last">
+                              <a href="#close">Нет</a>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
                       <? } 
                       }?>
                       <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
@@ -103,18 +122,7 @@ function setVote(type, element){
                         <!-- <span class='hidden'>1 Like</span> -->
 		                    <input type="hidden" id="id_hotels" value="<?=$val['id'];?>" />
 	                    </div>
-                     <!--  <script>
-                      $(function(){
-                      $('.like-toggle').click(function(){
-                      $(this).toggleClass('like-active');
-                      $(this).next().toggleClass('hidden');
-                      });
-                      });
-                      </script> -->
-                        <!-- <script src="src/js/like.js"></script> -->
-                       <!--  <span class = "like-counter"></span>
-                        <input type = "button" class="like" name = "like"></input> -->
-                  <!--     </form> -->
+              
                     </div>
               </li>
             <?php endforeach ?>
@@ -125,5 +133,6 @@ function setVote(type, element){
           'cur_page' => $cur_page
         ]);?>
         </section>
+        
 
 
