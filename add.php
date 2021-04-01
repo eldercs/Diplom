@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!file_exists($folder)) {
             mkdir($folder, 0777, true);
         }
-        $path = $folder . $_FILES['img']['name'];
+        $path = $folder . time() . $_FILES['img']['name'];
         $fileType = mime_content_type($tmpName);
         if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
             $errors['img'] = 'Загрузите картинку в формате jpg или png';

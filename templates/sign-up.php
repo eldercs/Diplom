@@ -30,21 +30,21 @@
                   <div class="preview">
                     <button class="preview__remove" type="button">x</button>
                     <div class="preview__img">
-                      <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="Изображение номера">
+                      <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="ава">
                     </div>
                   </div> 
-                  <input  type="file" name="img" id="input__file" class="input input__file">
+                  <input type="file" name="avatar" id="input__file" class="input input__file">
                   <label for="input__file" class="input__file-button">
                   <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
                   <span class="input__file-button-text">Выберите файл</span>
                   </label>
+                  <script src = "src/js/file_load.js"></script>
                   <span class="form__error2"></span>
                 </div>
-                <script src = "src/js/file_load.js">
-                </script>
+                
                 <!-- <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span> -->
                 <button type="submit" class="button red__button">Зарегистрироваться</button>
-    <a class="text-link" href="/login.php">Уже есть аккаунт</a>
+                <a class="text-link" href="/login.php">Уже есть аккаунт</a>
 </form>
       
     

@@ -46,7 +46,7 @@
         <span class="input__file-button-text">Выберите файл</span>
       </label>
 <!-- </div> -->
-      <script src = "src/js/file_load.js">  
+      <script src = "src/js/file_load.js">  </script>
       <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
     </div>           
   <button type="submit" class="add__button red__button">Добавить лот</button>

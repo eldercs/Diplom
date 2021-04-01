@@ -93,7 +93,7 @@ function setVote(type, element){
                       if($result[0] > 0){ ?>
                       <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
                         <input type="hidden" id="delete" name = "delete" value="<?=$val['id'];?>" />
-                        <button type = "submit" class="<?= $hidden; ?> delete">Delete</button>
+                        <button type = "submit" class="<?=$hidden;?> delete">Delete</button>
                       </form>
                       <? } 
                       }?>
