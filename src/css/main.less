@@ -55,7 +55,7 @@
   padding-bottom:30px;
   li{
     border:1px solid rgb(141, 141, 141);
-    padding:10px;
+    padding:11px;
     margin-top:20px;
     min-width:350px;
   }
@@ -174,108 +174,37 @@
   height:30px;
   padding-left:30px;
 }
-
-.modal {
-  position: fixed;
-  /* фиксированное положение */
-  top: 0px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  /* цвет фона */
-  z-index: 1050;
-  opacity: 0;
-  /* по умолчанию модальное окно прозрачно */
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  /* анимация перехода */
-  pointer-events: none;
-  /* элемент невидим для событий мыши */
+.lot__image{
+  display:flex;
+  max-width:350px;
 }
-
-  .modal:target {
-      opacity: 1;
-      pointer-events: auto;
-      overflow-y: auto;
-  }
-  
-  /* ширина модального окна и его отступы от экрана */
-  .modal-dialog {
-      position: relative;
-      width: auto;
-      //margin: 29%;
-      margin-top:70px;
-      margin-left:35%;
-     // margin-right:10%;
-      max-width:460px;
-  }
-  .modal-content {
-      position: relative;
-     // top:40px;
-     //    left:100%;
-      display: flex;
-      flex-direction: column;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid rgba(0, 0, 0, .2);
-      border-radius: .3rem;
-      outline: 0;
-      padding:20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-  }
-  .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px;
-      border-bottom: 1px solid #eceeef;
-  }
-  .modal-title {
-      text-align: center;
-      margin:0 auto;
-      line-height: 1.5;
-      font-size: 28px;
-      font-weight: 500;
-      padding-left:10px;
-  }
-  .modal-text{
-      margin-top:10px;
-      display:flex;
-      justify-content: space-between;
-      line-height: 1.5;
-      font-size: 1.25rem;
-      font-weight: 500;
-      min-width:160px;
-      max-height:50px;
-  }
-  .modal-body{
-      padding-top:15px;
-  }
-  .form_button{
-      display:flex;
-      justify-content: space-between;
-      line-height: 1.5;
-      font-size: 1.25rem;
-      .text-register{
-          font-size:20px;
-          padding-top:25px;
-          margin-right:15%;
-      }
-      .button__login{
-          font-size:19px;
-      }
-  }
-  
-  .close {
-      float: right;
-      font-family: sans-serif;
-      font-size: 50px;
-      font-weight: 700;
-      line-height: 1;
-      color: #000;
-      text-shadow: 0 1px 0 #fff;
-      opacity: .5;
-      text-decoration: none;
-  }
+.parent-del{
+  //z-index:1;
+  width:2px;
+  padding:0;
+  margin:0;
+}
+.delete_hotel{
+  position:relative; 
+  z-index:12;
+  top:-26px;
+  left:-10px;
+  margin:0 auto;
+  max-width:30px;
+  //background-color:white;
+}
+.dop-del{
+  position:relative;
+  top:-55px;
+  padding:6px;
+  padding-bottom:4px;
+  left:-7px;
+  height:6px;
+  z-index:10;
+  font-size:10;
+  color:white;
+  background-color:white;
+}
+.hotel-image{
+  z-index:2;
+}

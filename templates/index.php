@@ -75,7 +75,16 @@ function setVote(type, element){
             foreach($table_array as $val): ?>
               <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['title_image'];?>" width="350" height="260" alt="Home1">
+                      <img src="<?= $val['title_image'];?>" class = "hotel-image" width="350" height="260" alt="Home1">
+                      <?php 
+                      if($username){
+                      $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
+                      $result = mysqli_fetch_row($sql);
+                      if($result[0] > 0){ ?>
+                      <a href = "#openModal2" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
+                    
+                      <? } 
+                      }?>
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot__info">
@@ -87,12 +96,7 @@ function setVote(type, element){
                         </div>
                       </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
-                      <?php 
-                      if($username){
-                      $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
-                      $result = mysqli_fetch_row($sql);
-                      if($result[0] > 0){ ?>
-                      <a href = "#openModal2" class = "close" text="Close">x</a> 
+                     
                       <div id = "openModal2" class = "modal">
                         <div class = "modal-dialog">
                         <div class="modal-content">
@@ -114,8 +118,7 @@ function setVote(type, element){
                         </div>
                       </div>
                       </div>
-                      <? } 
-                      }?>
+                    
                       <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
                       <div class="one_news">
 		                    <button class = "like" id="like"><b class = "count__like"><?=$val['count_like'];?></b></button>
