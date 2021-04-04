@@ -15,7 +15,6 @@
             <option name = "category" value="<?=$key['id']; ?>"><?=$key['category'];?></option>
           <?php endforeach; ?>
           </select>
-               <!--  <span class="form__error">Выберите категорию</span> -->
         </div>
         <div class = "form__item">
           <label for ="price">Цена</label>
