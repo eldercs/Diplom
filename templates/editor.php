@@ -1,8 +1,9 @@
-<form action="ediror.php" method = "post">
+<form action="update.php" method = "post" enctype="multipart/form-data">
 <div>
     <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
+    <h2 for="name">id: <?= $table_array['id'] ?></h2>
         <h2 for="name">Название</h2>
-        <input id="name" class = "item-name" type="text" name="name" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
+        <input id="name" class = "item-name" type="text" name="title" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
     </div>
         <div class="lot__image">
            <!--  <label for="image">Изображение</label> -->
@@ -38,7 +39,6 @@
             <span class="hotel__description"><?= htmlspecialchars($table_array['description']);?></span>
         </div>
     </div>
-
         <p>
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
         </p>
