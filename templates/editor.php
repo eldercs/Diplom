@@ -1,7 +1,7 @@
 <form action="update.php" method = "post" enctype="multipart/form-data">
 <div>
     <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
-    <h2 for="name">id: <?= $table_array['id'] ?></h2>
+    <!-- <h2 for="name">id: <?= $table_array['id'] ?></h2> -->
         <h2 for="name">Название</h2>
         <input id="name" class = "item-name" type="text" name="title" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
     </div>
@@ -34,10 +34,11 @@
             <label for="description">Описание</label>
             <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required><?=$table_array['description']; ?></textarea>
         </div>
+        <!-- <div>
             <span class="hotel__city"><?= htmlspecialchars($table_array['city']);?></span>
             <span class="hotel__cost">От <?= htmlspecialchars($table_array['price']);?><b class="rub">р</b></span>
             <span class="hotel__description"><?= htmlspecialchars($table_array['description']);?></span>
-        </div>
+        </div> -->
     </div>
         <p>
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />

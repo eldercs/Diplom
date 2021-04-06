@@ -14,6 +14,7 @@ try {
 $errors = [];
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pos = $_POST;
+    //print_r($pos);
     $requared = ['name', 'category', 'description', 'city'];
     $is_numeric = [
         'price',

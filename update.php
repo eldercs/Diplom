@@ -27,11 +27,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach($is_numeric as $name){
         if(!is_numeric($pos[$name]) || intval($pos[$name]) <= 0){
             $errors[$name] = 'Введите число больше нуля';
-            print($errors[$name]);
+           /*  print($errors[$name]); */
             print($name);
         }
     }
-    /* if (!empty($_FILES['img']['name'])) {
+    if (!empty($_FILES['img']['name'])) {
     
         $tmpName = $_FILES['img']['tmp_name'];
         $folder = 'img/uploads/';
@@ -46,9 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             move_uploaded_file($tmpName, $path);
             $pos['img'] = $path;
         }
-    } else {
-        $errors['img'] = 'Вы не загрузили файл';
-    } */
+    }  
     if(count($errors)){
         print(count($errors));
         //header("Location: /index.php");
@@ -60,7 +58,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_bind_param($add_st,'siss', $pos['title'], $pos['price'],$pos['city'], $pos['description']);
         mysqli_stmt_execute($add_st); */
         // $sql = "UPDATE hotels SET `user_id` = $add_st, `title` = $pos['title'], `category_id` = $pos['category'], `price` = $pos['price'], `city` = $pos['city'], `description` = $pos['description'], `title_image` = $pos['img'], `count_like` = 0 WHERE (id = $pos['id'])";
-        $sql = mysqli_query($con, "UPDATE hotels SET `title` = 'test2', `count_like` = 10 WHERE `id` = $id ");
+        $pos = array_map('htmlspecialchars', $pos);
+        if(!empty($_FILES['img']['name'])){
+            $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]',  `title_image` = '$pos[img]'  WHERE `id` = $id ");
+        }
+        else{
+            $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]' WHERE `id` = $id ");
+        }
         header("Location: /index.php");
     }
 }
