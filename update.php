@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $is_numeric = [
         'price',
     ];
+    $image = ['img','img2','img3', 'img4','img5'];
     foreach($requared as $name){
         if (!array_key_exists($name, $pos) || empty($pos[$name])) {
             $errors[$name] = 'Это поле надо заполнить';
@@ -31,22 +32,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             print($name);
         }
     }
-    if (!empty($_FILES['img']['name'])) {
+foreach($image as $img){
+    if (!empty($_FILES[$img]['name'])) {
     
-        $tmpName = $_FILES['img']['tmp_name'];
+        $tmpName = $_FILES[$img]['tmp_name'];
         $folder = 'img/uploads/';
         if (!file_exists($folder)) {
             mkdir($folder, 0777, true);
         }
-        $path = $folder . time() . $_FILES['img']['name'];
+        $path = $folder . time() . $_FILES[$img]['name'];
         $fileType = mime_content_type($tmpName);
         if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
-            $errors['img'] = 'Загрузите картинку в формате jpg или png';
+            $errors[$img] = 'Загрузите картинку в формате jpg или png';
         } else {
             move_uploaded_file($tmpName, $path);
-            $pos['img'] = $path;
+            $pos[$img] = $path;
         }
-    }  
+    } 
+} 
     if(count($errors)){
         print(count($errors));
         //header("Location: /index.php");
@@ -61,6 +64,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pos = array_map('htmlspecialchars', $pos);
         if(!empty($_FILES['img']['name'])){
             $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]',  `title_image` = '$pos[img]'  WHERE `id` = $id ");
+         //  $sql = mysqli_query($con, "UPDATE hotel_image SET `image` = '$pos[image]',   WHERE `id_hotel` = $id ");
+         //print_r($pos);
+        $hotel_id = mysqli_query($con, 'SELECT `id` FROM `hotels` ORDER BY id DESC LIMIT 1');
+        $hotel_id = mysqli_fetch_assoc($hotel_id);
+        $hotel_id = $hotel_id['id'];
+         $sql = "INSERT INTO `hotel_image` (`id_hotel`, `image`, `image2`, `image3`, `image4`) VALUES (?, ?, ?, ?, ?)";
+         $add_st = mysqli_prepare($con, $sql);
+         mysqli_stmt_bind_param($add_st,'issss', $hotel_id, $pos['img2'], $pos['img3'], $pos['img4'], $pos['img5']);
+         mysqli_stmt_execute($add_st);
         }
         else{
             $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]' WHERE `id` = $id ");
