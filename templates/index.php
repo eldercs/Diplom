@@ -107,6 +107,7 @@ function setVote(type, element){
                             <div class="form__item">
                             <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
                               <input type="hidden" id="delete" name = "delete" value="<?=$val['id'];?>" />
+                              <input type="hidden" id="delete-img" name = "delete-img" value="<?=$val['title_image'];?>" />
                               <button type = "submit" class="<?=$hidden;?> delete_button">Да</button>
                             </form>
                             <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
