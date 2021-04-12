@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $is_numeric = [
         'price',
     ];
-    $image = ['img2','img3', 'img4','img5'];
+    $image = ['image','image2','image3','image4','image5'];
     foreach($requared as $name){
         if (!array_key_exists($name, $pos) || empty($pos[$name])) {
             $errors[$name] = 'Это поле надо заполнить';
@@ -32,6 +32,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             print($name);
         }
     }
+/* $uploaddir = 'img/uploads/';
+$uploadfile = $uploaddir . basename($_FILES['img3']['name']);
+$i = 0;
+echo '<pre>';
+if (move_uploaded_file($_FILES['img3']['tmp_name'], $uploadfile)) {
+    $i++;
+
+    $hotel_image[$i] = $uploadfile;
+    print_r($hotel_image);
+    echo "Файл корректен и был успешно загружен.\n";
+} else {
+    echo "Возможная атака с помощью файловой загрузки!\n";
+} */
+$hotel_image = mysqli_query($con, "SELECT `image2`, `image3`, `image4`, `image5` FROM `hotel_image` WHERE `id_hotel` = $id ");
+$hotel_image = mysqli_fetch_assoc($hotel_image);
+//print_r($hotel_image);
 foreach($image as $img){
     if (!empty($_FILES[$img]['name'])) {
     
@@ -48,8 +64,12 @@ foreach($image as $img){
             move_uploaded_file($tmpName, $path);
             $pos[$img] = $path;
         }
+    }
+    else if($img != 'image'){
+        $pos[$img] = $hotel_image[$img];
     } 
 } 
+//print_r( $pos);
     if(count($errors)){
         print(count($errors));
         //header("Location: /index.php");
@@ -62,21 +82,26 @@ foreach($image as $img){
         mysqli_stmt_execute($add_st); */
         // $sql = "UPDATE hotels SET `user_id` = $add_st, `title` = $pos['title'], `category_id` = $pos['category'], `price` = $pos['price'], `city` = $pos['city'], `description` = $pos['description'], `title_image` = $pos['img'], `count_like` = 0 WHERE (id = $pos['id'])";
         $pos = array_map('htmlspecialchars', $pos);
-        if(!empty($_FILES[$img]['name'])){
-            $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]',  `title_image` = '$pos[img]'  WHERE `id` = $id ");
+        if(!empty($_FILES['image']['name'])){
+            $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]',  `title_image` = '$pos[image]'  WHERE `id` = $id ");
          //  $sql = mysqli_query($con, "UPDATE hotel_image SET `image` = '$pos[image]',   WHERE `id_hotel` = $id ");
          //print_r($pos);
             $hotel_id = mysqli_query($con, 'SELECT `id` FROM `hotels` ORDER BY id DESC LIMIT 1');
             $hotel_id = mysqli_fetch_assoc($hotel_id);
             $hotel_id = $hotel_id['id'];
-            
-            $sql = "INSERT INTO `hotel_image` (`id_hotel`, `image`, `image2`, `image3`, `image4`) VALUES (?, ?, ?, ?, ?)";
+            $sql = mysqli_query($con, "UPDATE hotel_image SET `image2` = '$pos[image2]', `image3` = '$pos[image3]', `image4` = '$pos[image4]', `image5` = '$pos[image5]'  WHERE `id_hotel` = $id ");
+
+      /*       $sql = "INSERT INTO `hotel_image` (`id_hotel`, `image`, `image2`, `image3`, `image4`) VALUES (?, ?, ?, ?, ?)";
             $add_st = mysqli_prepare($con, $sql);
             mysqli_stmt_bind_param($add_st,'issss', $hotel_id, $pos['img2'], $pos['img3'], $pos['img4'], $pos['img5']);
-            mysqli_stmt_execute($add_st);
+            mysqli_stmt_execute($add_st); */
         }
         else{
             $sql = mysqli_query($con, "UPDATE hotels SET `title` = '$pos[title]', `price` = '$pos[price]', `description` = '$pos[description]', `city` = '$pos[city]' WHERE `id` = $id ");
+            $hotel_id = mysqli_query($con, 'SELECT `id` FROM `hotels` ORDER BY id DESC LIMIT 1');
+            $hotel_id = mysqli_fetch_assoc($hotel_id);
+            $hotel_id = $hotel_id['id'];
+            $sql = mysqli_query($con, "UPDATE hotel_image SET `image2` = '$pos[image2]', `image3` = '$pos[image3]', `image4` = '$pos[image4]', `image5` = '$pos[image5]'  WHERE `id_hotel` = $id ");
         }
         header("Location: /index.php");
     }

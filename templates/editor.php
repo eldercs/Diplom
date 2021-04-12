@@ -22,15 +22,15 @@
         <div class="albom-image">
            <h2> Вы можете загрузить картинки для галереи отеля </h2>
             <br>
-            <input type='file' id="imgInp" name="img2" onchange="loadFile(event, 2)"/>
+            <input type='file' id="imgInp" name="image2" onchange="loadFile(event, 2)"/>
             <img  src="#" id="output2" alt="your image" width="250" />
-            <input type='file' id="imgInp" name="img3" onchange="loadFile(event, 3)"/>
+            <input type='file' id="imgInp" name="image3" onchange="loadFile(event, 3)"/>
             <img id="output3" src="#" alt="your image"  width="250" />
             <br>
             
-            <input type='file' id="imgInp" name="img4" onchange="loadFile(event, 4)"/>
+            <input type='file' id="imgInp" name="image4" onchange="loadFile(event, 4)"/>
             <img id="output4" src="#" alt="your image" width="250"/>
-            <input type='file' id="imgInp" name="img5" onchange="loadFile(event, 5)"/>
+            <input type='file' id="imgInp" name="image5" onchange="loadFile(event, 5)"/>
             <img id="output5" src="#" alt="your image" width="250"/>
         </div>
     </div>
