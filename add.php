@@ -14,12 +14,10 @@ try {
 $errors = [];
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pos = $_POST;
-    //print_r($pos);
     $requared = ['name', 'category', 'description', 'city'];
     $is_numeric = [
         'price',
     ];
-   // $errors = [];
     foreach($requared as $name){
         if (!array_key_exists($name, $pos) || empty($pos[$name])) {
             $errors[$name] = 'Это поле надо заполнить';
@@ -27,10 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } 
    
-   // $gif = $_POST;
    foreach($is_numeric as $name){
     if(!is_numeric($pos[$name]) || intval($pos[$name]) <= 0){
-   /*      if (array_key_exists($name, $lot) && $lot[$name] && (!is_numeric($lot[$name]) || intval($lot[$name]) <= 0)) { */
             $errors[$name] = 'Введите число больше нуля';
             print($errors[$name]);
             print($name);
@@ -75,17 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_query($con, "INSERT INTO hotel_image (`id_hotel`, `image2`, `image3`, `image4`, `image5`) VALUES (LAST_INSERT_ID(), '0', '0', '0', '0')"); 
 
         header("Location: /");
-        /* $hotel_id = mysqli_query($con, 'SELECT `id` FROM `hotels` ORDER BY id DESC LIMIT 1');
-        $hotel_id = mysqli_fetch_assoc($hotel_id);
-        $hotel_id = $hotel_id['id'];
 
-        $sql = "INSERT INTO `hotel_image` (`id_hotel`, `image`) VALUES (?, ?)";
-        $add_st = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($add_st,'is', $hotel_id, $pos['img']);
-        mysqli_stmt_execute($add_st); */
-        //echo($hotel_id);
-      
-      //  cache_del_data([$_SESSION['user_id']], 'user_fav');
     }   
 }
 $page_content = shablon(

@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD']){
     foreach($requared_string as $name){
         if(!array_key_exists($name, $pos) || empty($pos[$name])){
             $errors[$name]= "Это поле надо заполнить";
-          //  print($errors[$name]);
+
         }
     }
     if (!empty($_FILES['avatar']['name'])) {
@@ -66,7 +66,6 @@ if($_SERVER['REQUEST_METHOD']){
 $page_content = shablon(
     'sign-up',
     [   
-        //'my_array' => $my_array,
         'errors' => $errors,
     ]
     

@@ -3,8 +3,7 @@ require_once 'functions.php';
 require_once "init.php";
 require_once "username.php";
 
-//$key = $_GET['key'] ?? null;
-//$lot_id = $_GET['key'] ?? null;
+
 $key = $_GET['key'] ?? null;
 $lotId = (isset($_GET['key'])) ? intval($_GET['key']) : null;
 $errors = [];
@@ -12,7 +11,7 @@ $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pos = $_POST;
-   // print_r($pos);
+
     $id = $pos['page_id'];
     $requared = ['title', 'description', 'city'];
     $is_numeric = [
@@ -28,23 +27,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach($is_numeric as $name){
         if(!is_numeric($pos[$name]) || intval($pos[$name]) <= 0){
             $errors[$name] = 'Введите число больше нуля';
-           /*  print($errors[$name]); */
+
             print($name);
         }
     }
-/* $uploaddir = 'img/uploads/';
-$uploadfile = $uploaddir . basename($_FILES['img3']['name']);
-$i = 0;
-echo '<pre>';
-if (move_uploaded_file($_FILES['img3']['tmp_name'], $uploadfile)) {
-    $i++;
 
-    $hotel_image[$i] = $uploadfile;
-    print_r($hotel_image);
-    echo "Файл корректен и был успешно загружен.\n";
-} else {
-    echo "Возможная атака с помощью файловой загрузки!\n";
-} */
 $hotel_image = mysqli_query($con, "SELECT `image2`, `image3`, `image4`, `image5` FROM `hotel_image` WHERE `id_hotel` = $id ");
 $hotel_image = mysqli_fetch_assoc($hotel_image);
 //print_r($hotel_image);

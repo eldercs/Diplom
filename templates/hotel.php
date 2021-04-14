@@ -6,7 +6,6 @@
            <!--  <p><?=htmlspecialchars($table_array['title_image']);?></p> -->
         </div>
         <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
-        <a href="#">Загрузить фотографии</a>
     </div>
     <div>
         <h2>Описание</h2>

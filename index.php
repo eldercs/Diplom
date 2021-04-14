@@ -18,6 +18,7 @@ try {
 } catch (Exception $e) {
     renderErrorTemplate($e->getMessage(), $username);
 }
+
 $cur_page = $_GET['page'] ?? 1;
 $page_items = 3;
 $resutl = mysqli_query($con, "SELECT COUNT(*) as cnt FROM `hotels`");
@@ -26,10 +27,14 @@ $pages_count = ceil($items_count/ $page_items);
 $offset = ($cur_page - 1) * $page_items;
 
 $pages =  range(1,$pages_count);
-/* $image = fetchAll($con, 'SELECT `id`,`image` FROM `hotel_image`'); */
 
-$table_array = fetchAll($con, "SELECT hotels.`id`,`title`, `price`, `city`, `description`, `user_id`, `count_like` ,`title_image` FROM hotels ORDER BY hotels.id DESC LIMIT " . $page_items . " OFFSET " . $offset);
-//$table_array = fetchAll($con, "SELECT hotels.`id`,`title`, `price`, `city`, `description`, `user_id`, `count_like` ,`image` FROM hotels JOIN hotel_image WHERE hotel_image.`id_hotel` = hotels.`id`  ORDER BY hotels.id DESC LIMIT " . $page_items . " OFFSET " . $offset);
+$id = $_GET['id'] ?? 0;
+if($id){
+    $table_array = fetchAll($con, "SELECT hotels.`id`,`title`, `price`, `city`, `description`, `user_id`, `count_like` ,`title_image`, `category` FROM hotels JOIN `category` WHERE `category_id` = '$_GET[id]' AND category.`id` = '$_GET[id]' ORDER BY hotels.id DESC LIMIT " . $page_items . " OFFSET " . $offset);
+}
+else{
+    $table_array = fetchAll($con, "SELECT hotels.`id`,`title`, `price`, `city`, `description`, `user_id`, `count_like` ,`title_image`, `category` FROM hotels JOIN `category` WHERE `category_id` = category.`id` ORDER BY hotels.id  DESC LIMIT " . $page_items . " OFFSET " . $offset);
+}
 $hidden = "visually-hidden";
 if($username){
     //echo($username[id]);
@@ -41,7 +46,7 @@ if($username){
         [   
             'hidden' => "",
             'table_array' => $table_array,
-            //'table_array2' => $table_array2,
+
             'pages' => $pages,
             'pages_count' => $pages_count,
             'cur_page' => $cur_page,

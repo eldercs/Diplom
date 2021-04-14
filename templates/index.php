@@ -89,6 +89,7 @@ function setVote(type, element){
                     </div>
                     <div class="lot__info">
                       <div class="lot__state">
+                      <h3><?= $val['category'];?></h3>
                       <h3 class="lot__title"><a class="text-link" href="hotel.php?key=<?=$val['id']; ?>"><?= $val['title'];?></a></h3>
                       <span class="lot__country"><?= $val['city'];?></span>
                         <div class="lot__rate">

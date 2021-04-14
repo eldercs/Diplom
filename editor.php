@@ -2,9 +2,7 @@
 require_once 'functions.php';
 require_once "init.php";
 require_once "username.php";
-//require_once "comments.php";
-//$key = $_GET['key'] ?? null;
-//$lot_id = $_GET['key'] ?? null;
+
 $key = $_GET['key'] ?? null;
 $lotId = (isset($_GET['key'])) ? intval($_GET['key']) : null;
 try {

@@ -42,11 +42,18 @@
                 <section class="main-promo">
                     <h2 class = "visually-hidden">Навигация</h2>
                     <ul class="promo__list">
+                  <?php
+                    foreach($my_array as $key => $val){ ?>
+                       <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>"> <?= $val['category']; ?></a></li>
                     <?php
-                    foreach($my_array as $key => $val){
-                        print('<li class = "nav__item"><a href = "all-lots.html">' . $val['category']. '</a></li>' );
                     }
-                    ?>
+                    ?> 
+                   <!--  <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "1" id = "1">Отели</a></li>
+                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "2" id = "2">Аппартаменты/квартиры</a></li>
+                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "3" id = "3">Курортные отели</a></li>
+                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "4" id = "4">Виллы</a></li>
+                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "5" id = "5">Шале</a></li>
+                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "6" id = "6">Котеджи</a></li> -->
                     </ul>
                 </section>
             </nav>
