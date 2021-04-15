@@ -83,27 +83,7 @@ else {
     ]);
 }
 
-/* if(!empty($search_price)) {
-    try {
-        $hotels = fetchAll($con, "SELECT h.`id`, h.`title` ,`city`, `price`, `count_like`, `image`, `category` AS `category` FROM hotels h JOIN hotel_image ON hotel_image.`id_hotel` = h.`id` JOIN category c ON h.`category_id` = c.`id`  WHERE (h.`price` LIKE '%$search_price%') ORDER BY id DESC");
-    } catch (Exception $e) {
-        renderErrorTemplate($e->getMessage(), $username);
-    }
-    $image = fetchOne($con, "SELECT *  FROM `hotel_image`");
-    $page_content = shablon('search', [
-        'my_array' => $my_array,
-        'hotels' => $hotels,
-        'image' => $image,
-        'search' => $search_price
-    ]);
-} else {
-    $page_content = shablon('search', [
-        'my_array' => $my_array,
-        'hotels' => null,
-        'image' => null,
-        'search' => $search_price
-    ]);
-}    */
+
 
 echo shablon(
     'layout',

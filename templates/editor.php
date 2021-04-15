@@ -9,7 +9,7 @@
             
             <img src="<?=$table_array['title_image'];?>" id="output" width="600"   alt="Home1"/>
         </div>
-        <input type='file' id="imgInp" name="img" onchange="loadFile(event, 1)"/>
+        <input type='file' id="imgInp" name="image" onchange="loadFile(event, 1)"/>
         <!-- <div class="form__item form__item--file form__item--last">
             <input  type="file" name="img" id="input__file" class="input input__file">
             <label for="input__file" class="input__file-button">
