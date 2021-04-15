@@ -69,7 +69,7 @@ function setVote(type, element){
         </form>
         <hr class="hr-shelf">
         <section class = "main-like">
-            <h2>Дома которые нравятся гостям</h2>
+            <h2 class = "lots-title">Дома которые нравятся гостям</h2>
             <ul class = "lots__list">
             <?php
             foreach($like_post as $val2): ?>
@@ -133,7 +133,7 @@ function setVote(type, element){
               </li>
               <?php endforeach ?>
             </ul>
-            <h2>Все номера гостиниц</h2>
+            <h2 class = "lots-title">Все номера гостиниц</h2>
             <ul class = "lots__list">
             <?php
             foreach($table_array as $val): ?>
