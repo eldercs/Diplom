@@ -85,12 +85,12 @@ function setVote(type, element){
                     
                       <? } 
                       }?>
-                     <!--  <p><?=$val2['id'];?></p> -->
+
                     </div>
                     <div class="lot__info">
                       <div class="lot__state">
                       <h3><?= $val2['category'];?></h3>
-                      <h3 class="lot__title"><a class="text-link" href="hotel.php?key=<?=$val['id']; ?>"><?= $val2['title'];?></a></h3>
+                      <h3 class="lot__title"><a class="text-link" href="hotel.php?key=<?=$val2['id']; ?>"><?= $val2['title'];?></a></h3>
                       <span class="lot__country"><?= $val2['city'];?></span>
                         <div class="lot__rate">
                           <span class="lot__cost">От <?= $val2['price'];?><b class="rub">р</b></span>

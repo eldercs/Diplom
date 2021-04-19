@@ -2,12 +2,21 @@
     <div>
     <h2><?=htmlspecialchars($table_array['title']);?></h2>
         <div class="lot__image">
-            <img src="<?=$table_array['title_image'];?>" width="600"  alt="Home1">
-           <!--  <p><?=htmlspecialchars($table_array['title_image']);?></p> -->
+           <img src="<?=$table_array['title_image'];?>" width="600"  alt="Home1">
+          <!--  <?=htmlspecialchars($table_array['title_image']);?> -->
+          
         </div>
-        <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
-    </div>
+        
+        </div>
     <div>
+    <br>
+    <?php foreach($hotel_image as $image): ?>
+           <?php if($image){?>
+                <img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1">
+           <?php }?>
+    <?php endforeach ?>
+    <br>
+    <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
         <h2>Описание</h2>
         <div>
             <span class="hotel__category"><?= htmlspecialchars($table_array['category']);?></span>
