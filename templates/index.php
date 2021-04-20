@@ -87,15 +87,14 @@ function setVote(type, element){
                       }?>
 
                     </div>
-                    <div class="lot__info">
+                    <div class="lot-info">
                       <div class="lot__state">
-                      <h3><?= $val2['category'];?></h3>
-                      <h3 class="lot__title"><a class="text-link" href="hotel.php?key=<?=$val2['id']; ?>"><?= $val2['title'];?></a></h3>
-                      <span class="lot__country"><?= $val2['city'];?></span>
-                        <div class="lot__rate">
-                          <span class="lot__cost">От <?= $val2['price'];?><b class="rub">р</b></span>
-                        </div>
-                      </div>
+                        <p class="lot__title lot__text"><?= $val2['title'];?></p>
+                        <p class = "lot__text lot__category"><?= $val2['category'];?></p>
+                        <p class="lot__country lot__text"><?= $val2['city'];?></p>
+                        <p class="lot__cost lot__text">От <?= $val2['price'];?><b class="rub">р</b></p>
+                        <a class="lot__button lot__text" href="hotel.php?key=<?=$val2['id'];?>">Подробнее</a>
+                    </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      
                       <div id = "openModal2" class = "modal">
@@ -151,14 +150,13 @@ function setVote(type, element){
                       }?>
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
-                    <div class="lot__info">
+                    <div class="lot-info">
                       <div class="lot__state">
-                      <h3><?= $val['category'];?></h3>
-                      <h3 class="lot__title"><a class="text-link" href="hotel.php?key=<?=$val['id']; ?>"><?= $val['title'];?></a></h3>
-                      <span class="lot__country"><?= $val['city'];?></span>
-                        <div class="lot__rate">
-                          <span class="lot__cost">От <?= $val['price'];?><b class="rub">р</b></span>
-                        </div>
+                        <p class="lot__title lot__text"><?= $val['title'];?></p>
+                        <p class = "lot__text lot__category"><?= $val['category'];?></p>
+                        <p class="lot__country lot__text"><?= $val['city'];?></p>
+                        <p class="lot__cost lot__text">От <?= $val['price'];?><b class="rub">р</b></p>
+                        <a class="lot__button lot__text" href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
                       </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      

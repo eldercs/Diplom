@@ -61,7 +61,7 @@
   }
 }
 
-.lot__info{
+.lot-info{
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -133,8 +133,8 @@
 }
 .like{
   position: relative;
-  top:95px;
-  margin-right:35px;
+  top:154px;
+  margin-right:36px;
   padding:20px;
   width:30px;
   height:30px;
@@ -152,7 +152,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transform: scaleX(1.1) scaleY(1.1);
   //font-size:19px;
-  margin-right:38px;
+  margin-right:39px;
   opacity:1;
 }
 .like:hover{
@@ -208,6 +208,10 @@
 .hotel-image{
   z-index:2;
 }
+.lot__state{
+  position:relative;
+  min-height:200px;
+}
 .lots-title{
   margin-top:40px;
   font-family: 'Geneva'; 
@@ -215,4 +219,25 @@
   //color:rgb(56, 52, 52);
   text-shadow: 2px 2px 4px rgb(126, 126, 126);
   text-transform: uppercase;
+}
+.lot__text{
+  padding:5px;
+  margin:0;
+}
+.lot__category{
+  padding-top:15px;
+}
+.lot__title{
+  padding-top:16px;
+  font-size:22px;
+  font-weight: bold;
+  font-weight: 700;
+}
+.lot__button{
+  position:absolute;
+  color:white;
+  margin-top:10px;
+  padding:15px;
+  background:rgb(226, 74, 74);
+  border-radius: 10px;
 }
