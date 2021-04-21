@@ -8,11 +8,11 @@
         </div>
         
         </div>
-    <div>
+    <div class = "container2">
     <br>
     <?php foreach($hotel_image as $image): ?>
            <?php if($image){?>
-                <img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1">
+                <a href="<?=$image;?>" data-lightbox="test"><img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1"></a>
            <?php }?>
     <?php endforeach ?>
     <br>
@@ -61,4 +61,5 @@
 
         </p>
     </div>
+    <script src = "src/js/lightbox-plus-jquery.js">  </script>
 </section>
