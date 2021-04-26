@@ -66,13 +66,13 @@
                           <a href="#close" text="Close" class="close">×</a>
                         </div>
                         <div class="modal-body">
-                            <div class="form__item">
-                                <label for="email">E-mail*</label>
-                                <input id="email" class ="login-email" type="text" name="email" placeholder="Введите e-mail" required>
+                            <div class="modal__item">
+                                <!-- <label for="email">E-mail*</label> -->
+                                <input id="email" class ="modal-text login-email" type="text" name="email" placeholder="Введите e-mail" required>
                             </div>
-                            <div class="form__item form__item--last">
-                                <label for="password">Пароль*</label>
-                                <input id="password" class ="login-password" type="text" name="password" placeholder="Введите пароль" required>
+                            <div class="modal__item form__item--last">
+                               <!--  <label for="password">Пароль*</label> -->
+                                <input id="password" class ="modal-text login-password" type="text" name="password" placeholder="Введите пароль" required>
                             </div>
                             <div class="form_button">
                                 <button class = "button__login red__button" type="submit">Войти</button>

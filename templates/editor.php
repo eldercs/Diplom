@@ -36,7 +36,6 @@
             <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
         </p>
     </div>
-
     
         <h2> Вы можете загрузить картинки для галереи отеля </h2>
         <div class="albom-image">
