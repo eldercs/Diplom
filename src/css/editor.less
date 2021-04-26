@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     max-width:840px;
     label{
-        margin:5px;
+        margin:10px;
     }
 }
 .image_editor{
@@ -29,7 +29,7 @@
 }
 .editor_description{
     display:flex;
-    width:700px;
+    width:900px;
     flex-wrap:wrap;
     justify-content: space-between;
 }
@@ -39,14 +39,33 @@
 .item-city{
     width:300px;
 }
-.main-editor{
+.main-editor, .button_editor{
     max-width:900px;
     margin:0 auto;
 }
-.button_editor{
-    text-align: center; 
+.editor__description{
+    width:900px;
+    textarea{
+        min-height:120px;
+      }
 }
+
 .editor__button{
     padding:20px 34px;
     font-size:26px;
+}
+.input__file-button,.editor__image{
+    margin-top:20px;
+}
+.editor__item{
+    display:flex;
+    flex-direction: column;
+    margin-bottom:15px;
+}
+.editor-label{
+    margin-bottom:10px;
+}
+.editor-text{
+    padding:10px;
+    margin:10px 0;
 }

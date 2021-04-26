@@ -145,7 +145,6 @@ function setVote(type, element){
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
                       <a href = "#openModal2" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
-                    
                       <? } 
                       }?>
                      <!--  <p><?=$val['id'];?></p> -->

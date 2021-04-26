@@ -16,7 +16,14 @@
            <?php }?>
     <?php endforeach ?>
     <br>
-    <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
+    <?php 
+        if($username){
+            $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
+            $result = mysqli_fetch_row($sql);
+            if($result[0] > 0){ ?>
+                <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
+                <? } 
+            }?>
         <h2>Описание</h2>
         <div>
             <span class="hotel__category"><?= htmlspecialchars($table_array['category']);?></span>

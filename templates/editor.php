@@ -1,21 +1,34 @@
 <form action="update.php" method = "post" enctype="multipart/form-data">
 <div class = "main-editor">
-    <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
+    <div class="editor__item form__item--invalid"> <!-- form__item--invalid -->
     <!-- <h2 for="name">id: <?= $table_array['id'] ?></h2> -->
         <h2 for="name">Название</h2>
-        <input id="name" class = "item-name" type="text" name="title" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
+        <input id="name" class = "editor-text item-name" type="text" name="title" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
+        <div class="editor__image">
+            <img src="<?=$table_array['title_image'];?>" id="output" width="600"   alt="Home1"/>
+        </div>
+        <input type="file" id="input__file" class="input input__file"  onchange="loadFile(event, 1)">
+            <label for="input__file" class="input__file-button">
+                <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
+                <span class="input__file-button-text">Выберите файл</span>
+            </label>
+        <script src = "src/js/file_load.js"></script>
         <h2>Описание</h2>
         <div class = "editor_description">
-        <div class = "form__item">
+        <div class = "editor__item">
+        <div class = "editor-label">
           <label for ="price">Цена</label>
-          <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required value="<?=$table_array['price'];?>">
         </div>
-        <div class="form__item form__item--small">
+          <input id ="price" class ="editor-text add-price" type="number" name="price" placeholder="0" required value="<?=$table_array['price'];?>">
+        </div>
+        <div class="editor__item form__item--small">
+        <div class = "editor-label">
           <label for="city">Город</label>
-          <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required value="<?=$table_array['city']; ?>">
         </div>
-        <div class="form__item form__item--wide">
-            <label for="description">Описание</label>
+          <input id="city" class = "editor-text item-city" type="text" name="city" placeholder="Введите город" required value="<?=$table_array['city']; ?>">
+        </div>
+        <div class="editor__item editor__description">
+            <label for="description" class = "editor-label">Описание</label>
             <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required><?=$table_array['description']; ?></textarea>
         </div>
         </div>
@@ -23,27 +36,8 @@
             <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
         </p>
     </div>
-        <div class="lot__image">
-            <img src="<?=$table_array['title_image'];?>" id="output" width="600"   alt="Home1"/>
-        </div>
-       <!-- <input type='file' id="imgInp" name="image"  onchange="loadFile(event, 1)"/>  -->
-       <input type="file" name="avatar" id="input__file" class="input input__file"  onchange="loadFile(event, 1)">
-            <label for="input__file" class="input__file-button">
-                <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
-                <span class="input__file-button-text">Выберите файл</span>
-            </label>
-        <script src = "src/js/file_load.js"></script>
-     
 
-        <!-- <div class="form__item form__item--file form__item--last">
-            <input  type="file" name="img" id="input__file" class="input input__file">
-            <label for="input__file" class="input__file-button">
-                <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
-                <span class="input__file-button-text">Выберите файл</span>
-            </label>
-            <script src = "src/js/file_load.js">  </script>
-            <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
-        </div>   --> 
+    
         <h2> Вы можете загрузить картинки для галереи отеля </h2>
         <div class="albom-image">
             <label for="imgInp2">
@@ -105,26 +99,7 @@
             </label>
         </div>
     </div>
-   <!--  <div>
-        <h2>Описание</h2>
-        <div class = "editor_description">
-        <div class = "form__item">
-          <label for ="price">Цена</label>
-          <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required value="<?=$table_array['price'];?>">
-        </div>
-        <div class="form__item form__item--small">
-          <label for="city">Город</label>
-          <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required value="<?=$table_array['city']; ?>">
-        </div>
-        <div class="form__item form__item--wide">
-            <label for="description">Описание</label>
-            <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required><?=$table_array['description']; ?></textarea>
-        </div>
-        </div>
-        <p>
-            <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
-        </p>
-    </div> -->
+
     <div class = "button_editor">
         <button type="submit" class="editor__button red__button">Сохранить</button>
     </div>

@@ -33,12 +33,7 @@
       </div>
     <div class="form__item form__item--file form__item--last">
       <label>Изображение</label>
-      <!--  <div class="preview">
-        <button class="preview__remove" type="button">x</button>
-        <div class="preview__img">
-          <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="Изображение номера">
-        </div>
-      </div>  -->
+
       <input  type="file" name="img" id="input__file" class="input input__file">
       <label for="input__file" class="input__file-button">
         <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
