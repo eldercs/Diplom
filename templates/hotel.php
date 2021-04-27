@@ -1,29 +1,33 @@
 <section>
+<?php 
+        if($username){
+            $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
+            $result = mysqli_fetch_row($sql);
+            if($result[0] > 0){ ?>
+            <div class = "editor-redactor">
+                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-text" >Редактировать</a>
+                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-image"><img src = "./src/img/editor-hotel.png" width = "40" class = "editor-image"></a>
+            </div>
+                <? } 
+        }?>
     <div>
-    <h2><?=htmlspecialchars($table_array['title']);?></h2>
-        <div class="lot__image">
-           <img src="<?=$table_array['title_image'];?>" width="600"  alt="Home1">
+        <h2 class = "editor-title"><?=htmlspecialchars($table_array['title']);?></h2> 
+    
+    
+        <div class="hotel__image">
+           <img src="<?=$table_array['title_image'];?>" width="900"  alt="Home1">
           <!--  <?=htmlspecialchars($table_array['title_image']);?> -->
           
         </div>
         
         </div>
     <div class = "container2">
-    <br>
     <?php foreach($hotel_image as $image): ?>
            <?php if($image){?>
                 <a href="<?=$image;?>" data-lightbox="test"><img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1"></a>
            <?php }?>
     <?php endforeach ?>
     <br>
-    <?php 
-        if($username){
-            $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
-            $result = mysqli_fetch_row($sql);
-            if($result[0] > 0){ ?>
-                <a href="editor.php?key=<?=$table_array['id']; ?>">Редактировать</a>
-                <? } 
-            }?>
         <h2>Описание</h2>
         <div>
             <span class="hotel__category"><?= htmlspecialchars($table_array['category']);?></span>
