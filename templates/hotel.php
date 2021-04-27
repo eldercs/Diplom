@@ -1,42 +1,41 @@
-<section>
+<section class = "hotel-details">
 <?php 
         if($username){
             $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
             $result = mysqli_fetch_row($sql);
             if($result[0] > 0){ ?>
             <div class = "editor-redactor">
-                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-text" >Редактировать</a>
-                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-image"><img src = "./src/img/editor-hotel.png" width = "40" class = "editor-image"></a>
+                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-redactor__text" >Редактировать</a>
+                <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-redactor__image"><img src = "./src/img/editor-hotel.png" width = "40" class = "editor-redactor__image"></a>
             </div>
                 <? } 
         }?>
     <div>
-        <h2 class = "editor-title"><?=htmlspecialchars($table_array['title']);?></h2> 
+        <h2 class = "editor__title"><?=htmlspecialchars($table_array['title']);?></h2> 
+        <h3 class="editor__text hotel__category">Категории: <?= htmlspecialchars($table_array['category']);?></h3>
+        <h3 class="editor__text hotel__city">Город <?= htmlspecialchars($table_array['city']);?></h3>
     
     
         <div class="hotel__image">
-           <img src="<?=$table_array['title_image'];?>" width="900"  alt="Home1">
+           <img src="<?=$table_array['title_image'];?>" width="1200"  alt="Home1">
           <!--  <?=htmlspecialchars($table_array['title_image']);?> -->
           
         </div>
-        
-        </div>
-    <div class = "container2">
-    <?php foreach($hotel_image as $image): ?>
+        <?php foreach($hotel_image as $image): ?>
            <?php if($image){?>
                 <a href="<?=$image;?>" data-lightbox="test"><img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1"></a>
            <?php }?>
     <?php endforeach ?>
+        </div>
+    <div class = "container2">
     <br>
-        <h2>Описание</h2>
+        <h2 class="editor__text editor__description">Описание</h2>
         <div>
-            <span class="hotel__category"><?= htmlspecialchars($table_array['category']);?></span>
+           
             <br>
-            <span class="hotel__city"><?= htmlspecialchars($table_array['city']);?></span>
+            <span class="editor__text hotel__cost">Цена: от <b class="rub"><?= htmlspecialchars($table_array['price']);?>р</b></span>
             <br>
-            <span class="hotel__cost">От <?= htmlspecialchars($table_array['price']);?><b class="rub">р</b></span>
-            <br>
-            <span class="hotel__description"><?= htmlspecialchars($table_array['description']);?></span>
+            <p class="editor__text editor__description-hotel"><?= htmlspecialchars($table_array['description']);?></p>
         </div>
     </div>
     <div class = "hotel__comments">
