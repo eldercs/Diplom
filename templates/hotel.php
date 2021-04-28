@@ -65,10 +65,12 @@
         <?php endif; ?>
         <p>
             <label>Комментарии:</label>
+        
             <?php
             foreach($comments as $com => $val): ?>
             <br />
-            <p><?=htmlspecialchars($val['user']);?></p>
+            
+            <p><?=htmlspecialchars($val['user']);?> <?=time2($val['date']);?></p>
             <textarea name="comment" cols="100" rows="4"><?=htmlspecialchars($val['comment']);?></textarea>
             <?php endforeach ?>
         </p>
@@ -77,5 +79,12 @@
 
         </p>
     </div>
+    <?php
+        function time2($string) {
+            $day = $string + 60*60*24;
+            $day2 = date('d.m.Y H:i:s', $day);
+            return $day2;
+        }
+    ?>
     <script src = "src/js/lightbox-plus-jquery.js">  </script>
 </section>
