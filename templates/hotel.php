@@ -35,7 +35,13 @@
             <br>
             <span class="editor__text hotel__cost">Цена: от <b class="rub"><?= htmlspecialchars($table_array['price']);?>р</b></span>
             <br>
-            <p class="editor__text editor__description-hotel"><?= htmlspecialchars($table_array['description']);?></p>
+            <?php
+                function nl2br2($string) {
+                $string = str_replace(array("\r\n", "\r", "\n"), "<br />", $string);
+                return $string;
+                }
+            ?>
+            <p class="editor__text editor__description-hotel"><?= nl2br2($table_array['description']);?></p>
         </div>
     </div>
     <div class = "hotel__comments">
