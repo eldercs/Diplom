@@ -55,7 +55,8 @@
         <p>
             <label>Комментарий:</label>
             <br />
-            <textarea name="comment" cols="100" rows="14"></textarea>
+            <textarea style="overflow:hidden;" maxlength="40" name="comment" class = "hotel__comments-text" rows = "4"></textarea>
+        
         </p>
         <p>
             <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
@@ -65,13 +66,14 @@
         <?php endif; ?>
         <p>
             <label>Комментарии:</label>
-        
+            
             <?php
             foreach($comments as $com => $val): ?>
             <br />
-            
-            <p><?=htmlspecialchars($val['user']);?> <?=time2($val['date']);?></p>
-            <textarea name="comment" cols="100" rows="4"><?=htmlspecialchars($val['comment']);?></textarea>
+            <p><?=htmlspecialchars($val['user']);?> <?=htmlspecialchars($val['date']);?></p>
+            <div class = "hotel__comment">
+                <p name="comment" class = "hotel__comments-text"><?=nl2br2($val['comment']);?></p>
+            </div>
             <?php endforeach ?>
         </p>
         <p>
@@ -79,10 +81,19 @@
 
         </p>
     </div>
+    <script>
+            var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keyup', function(){
+  if(this.scrollTop > 0){
+    this.style.height = this.scrollHeight + "px";
+  }
+});
+</script>
     <?php
         function time2($string) {
             $day = $string + 60*60*24;
-            $day2 = date('d.m.Y H:i:s', $day);
+            $day2 = date('d . m .Y H:i:s', $day);
             return $day2;
         }
     ?>
