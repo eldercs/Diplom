@@ -27,6 +27,7 @@
            <?php }?>
     <?php endforeach ?>
         </div>
+    <div class = "editor-description">
     <div class = "container2">
     <br>
         <h2 class="editor__text editor__description">Описание</h2>
@@ -43,6 +44,10 @@
             ?>
             <p class="editor__text editor__description-hotel"><?= nl2br2($table_array['description']);?></p>
         </div>
+    </div>
+    <div class = "button-bron">
+        <a href="/bron.php">Забронировать</a>
+    </div>
     </div>
     <div class = "hotel__comments">
         <?php if($username): ?>

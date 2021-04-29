@@ -40,3 +40,13 @@ CREATE TABLE likes(
     id_user INT(20),
     id_hotel INT(20),
 ); 
+CREATE TABLE bron(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_user INT(20),
+    id_creater INT(20),
+    telephone INT(20),
+    KEY `id_user` (`id_user`),
+	KEY `id_creater` (`id_creater`),
+	CONSTRAINT `bron_fk_1` FOREIGN KEY (`id_user`) REFERENCES `users`(`id`),
+	CONSTRAINT `bron_fk_2` FOREIGN KEY (`id_creater`) REFERENCES `hotels`(`user_id`)
+); 
