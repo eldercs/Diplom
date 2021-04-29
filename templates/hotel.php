@@ -48,29 +48,29 @@
         <?php if($username): ?>
         <form name="comment" action="comments.php" method="post">
             <p>
-            <label>Имя: </label>
+            <label class = "comment__text">Имя: </label>
             <!-- <input type="text" name="name" /> -->
-            <input type = "text" name = "name"  value ="<?=$username['name']; ?>"readonly >
+            <input type = "text" class = "commnet__name" name = "name"  value ="<?=$username['name']; ?>"readonly >
             </p>
         <p>
-            <label>Комментарий:</label>
+            <label class = "comment__text">Комментарий:</label>
             <br />
             <textarea style="overflow:hidden;" maxlength="40" name="comment" class = "hotel__comments-text" rows = "4"></textarea>
         
         </p>
         <p>
             <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
-            <input type="submit" value="Отправить" />
+            <input class = "comment__button" type="submit" value="Отправить" />
         </p>
         </form>
         <?php endif; ?>
         <p>
-            <label>Комментарии:</label>
+            <label class = "comment__text">Комментарии:</label>
             
             <?php
             foreach($comments as $com => $val): ?>
             <br />
-            <p><?=htmlspecialchars($val['user']);?> <?=htmlspecialchars($val['date']);?></p>
+            <p class = "commnet__name"><?=htmlspecialchars($val['user']);?> <?=htmlspecialchars($val['date']);?></p>
             <div class = "hotel__comment">
                 <p name="comment" class = "hotel__comments-text"><?=nl2br2($val['comment']);?></p>
             </div>
@@ -82,10 +82,10 @@
         </p>
     </div>
     <script>
-            var textarea = document.querySelector('textarea');
+    var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keyup', function(){
-  if(this.scrollTop > 0){
+    textarea.addEventListener('keyup', function(){
+    if(this.scrollTop > 0){
     this.style.height = this.scrollHeight + "px";
   }
 });
