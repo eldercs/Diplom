@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class = "button-bron">
-        <a href="/bron.php">Забронировать</a>
+        <a href="#openModal3">Забронировать</a>
     </div>
     </div>
     <div class = "hotel__comments">
@@ -83,8 +83,36 @@
         </p>
         <p>
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
-
         </p>
+        <div id = "openModal3" class = "modal">
+            <form action = "login.php"  method = "post" enctype="multipart/form-data">
+                <div class = "modal-dialog-bron">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title">Заполните поля для подтверждения бронирования</h3>
+                          <a href="#close" text="Close" class="close">×</a>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal__item form__item--last">
+                               <!--  <label for="password">Пароль*</label> -->
+                                <label for="name">Введите вашу фамилию</label>
+                                <input id="name" class ="modal-text login-password" type="text" name="name" placeholder="Введите пароль" required>
+                            </div>
+                            <div class="modal__item">
+                                <!-- <label for="email">E-mail*</label> -->
+                                <label for="telephone">Введите ваш телефон</label>
+                                <input id="telephone" class ="modal-text login-email" type="number" name="telephone" placeholder="Введите e-mail" required>
+                            </div>
+                            
+                            <div class="form_button">
+                                <button class = "button__login red__button" type="submit">Подтвердить</button>
+                                <a class="text-register" href="/index.php">Отмена</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <script>
     var textarea = document.querySelector('textarea');
