@@ -85,7 +85,7 @@
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
         </p>
         <div id = "openModal3" class = "modal">
-            <form action = "login.php"  method = "post" enctype="multipart/form-data">
+            <form action = "bron.php"  method = "post" enctype="multipart/form-data">
                 <div class = "modal-dialog-bron">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -95,15 +95,25 @@
                         <div class="modal-body">
                             <div class="modal__item form__item--last">
                                <!--  <label for="password">Пароль*</label> -->
-                                <label for="name">Введите вашу фамилию</label>
-                                <input id="name" class ="modal-text login-password" type="text" name="name" placeholder="Введите пароль" required>
+                                <label for="surname">Введите вашу фамилию</label>
+                                <input id="surname" class ="modal-text name-bron" type="text" name="surname" placeholder="Фамилия" required>
+                            </div>
+                            <div class="modal__item form__item--last">
+                               <!--  <label for="password">Пароль*</label> -->
+                                <label for="name">Введите ваше имя</label>
+                                <input id="name" class ="modal-text name-bron" type="text" name="name" placeholder="Имя" required>
+                            </div>
+                            <div class="modal__item form__item--last">
+                               <!--  <label for="password">Пароль*</label> -->
+                                <label for="patronymic">Введите ваше отчество</label>
+                                <input id="patronymic" class ="modal-text name-bron" type="text" name="patronymic" placeholder="Отчество" required>
                             </div>
                             <div class="modal__item">
                                 <!-- <label for="email">E-mail*</label> -->
                                 <label for="telephone">Введите ваш телефон</label>
-                                <input id="telephone" class ="modal-text login-email" type="number" name="telephone" placeholder="Введите e-mail" required>
+                                <input id="telephone" class ="modal-text telephote-bron" type="number" name="telephone" placeholder="Телефон" required>
                             </div>
-                            
+                            <input  id="id_hotel" name = "id_hotel"  value="<?=$table_array['id'];?>" />
                             <div class="form_button">
                                 <button class = "button__login red__button" type="submit">Подтвердить</button>
                                 <a class="text-register" href="/index.php">Отмена</a>
