@@ -25,6 +25,7 @@
            <?php if($image){?>
                 <a href="<?=$image;?>" data-lightbox="test"><img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1"></a>
            <?php }?>
+        
     <?php endforeach ?>
         </div>
     <div class = "editor-description">

@@ -42,9 +42,12 @@
                   <span class="form__error2"></span>
                 </div>
                 
+                <div class = "sign-up__button">
                 <!-- <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span> -->
-                <button type="submit" class="button red__button">Зарегистрироваться</button>
-                <a class="text-link" href="/login.php">Уже есть аккаунт</a>
+                  <button type="submit" class="button red__button">Зарегистрироваться</button>
+                 
+                  <a class="text-link" href="/login.php">Уже есть аккаунт</a>
+                </div>
 </form>
       
     

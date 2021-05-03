@@ -5,7 +5,7 @@
         <h2 for="name">Название</h2>
         <input id="name" class = "editor-text item-name" type="text" name="title" placeholder="Введите название заведения" required value="<?=$table_array['title'];?>">
         <div class="editor__image">
-            <img src="<?=$table_array['title_image'];?>" id="output" width="600" alt="Home1"/>
+            <img src="<?=$table_array['title_image'];?>" id="output" alt="Home1"/>
         </div>
         <input type="file" id="input__file" class="input input__file"  onchange="loadFile(event, 1)">
             <label for="input__file" class="input__file-button">
