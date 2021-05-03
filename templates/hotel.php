@@ -45,9 +45,21 @@
             <p class="editor__text editor__description-hotel"><?= nl2br2($table_array['description']);?></p>
         </div>
     </div>
-    <div class = "button-bron">
-        <a href="#openModal3">Забронировать</a>
-    </div>
+    <?php 
+       /*  $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `bron` WHERE `id_user` = $username[id] AND `id_creator` = $table_array[user_id]");
+        $result = mysqli_fetch_row($sql); 
+        echo($result[0]); */
+         if($username['id']){ ?>
+        <div class = "button-bron">
+            <a href="#openModal3">Забронировать</a>
+        </div>
+        <? } 
+        else{ ?>
+            <div class = "button-bron">
+                <a href="#openModal5" onclick="document.getElementById('openModal5').style.display='block'">Забронировать</a>
+              <!--   <a href="#openModal5">Забронировать</a> -->
+            </div>
+       <? }?>
     </div>
     <div class = "hotel__comments">
         <?php if($username): ?>
@@ -113,7 +125,7 @@
                                 <label for="telephone">Введите ваш телефон</label>
                                 <input id="telephone" class ="modal-text telephote-bron" type="number" name="telephone" placeholder="Телефон" required>
                             </div>
-                            <input  id="id_hotel" name = "id_hotel"  value="<?=$table_array['id'];?>" />
+                            <input type = "hidden"  id="id_hotel" name = "id_hotel"  value="<?=$table_array['id'];?>" />
                             <div class="form_button">
                                 <button class = "button__login red__button" type="submit">Подтвердить</button>
                                 <a class="text-register" href="/index.php">Отмена</a>
@@ -122,6 +134,22 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div id = "openModal4" class = "modal">
+                <div class = "modal-dialog-bron modal-dialog-bron4">
+                    <div class="modal-content">
+                        <h3 class="modal-title">Заявка на бронирование отправлена!</h3> 
+                        <a class="modal__ok red__button" href="/hotel.php?key=<?=$table_array['id'];?>">Ок</a>
+                    </div>
+                </div>
+        </div>
+        <div id = "openModal5" class = "modal">
+                <div class = "modal-dialog-bron modal-dialog-bron4">
+                    <div class="modal-content">
+                        <h3 class="modal-title">Авторизуйтесь пожалуйста</h3> 
+                        <a onclick = "document.getElementById('openModal5').style.display='none'" class="modal__ok red__button">Ок</a>
+                    </div>
+                </div>
         </div>
     </div>
     <script>

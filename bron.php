@@ -7,7 +7,7 @@ try {
 } catch (Exception $e) {
     renderErrorTemplate($e->getMessage(), $username);
 }
-
+/* $key = $_GET['key'] ?? null; */
 $errors = [];
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pos = $_POST;
@@ -36,8 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         mysqli_stmt_bind_param($add_st,'isss',  $pos['telephone'], $pos['surname'], $pos['name'],$pos['patronymic']);
         mysqli_stmt_execute($add_st);
-
-        header("Location: /");
+        
+        header("Location: /hotel.php?key=$lotId#openModal4");
 
     }   
 }
