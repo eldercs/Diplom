@@ -22,7 +22,7 @@
                    </svg> -->
                 </a>
                 <?php if($username): ?>
-                    <a href="#openModal2"><img src="/build/img/notice.png" width= "40" alt=""></a>
+                    <a href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
                 <?php endif; ?>
                 <ul class="header-item">
                     <li class = "add-number"><a href =  "add.php" class = "nav-button">Добавить номер</a></li>
@@ -84,10 +84,9 @@
                 </div>
                 </form>
             </div>
-            <div id = "openModal2" class = "modal notice">
-                <form action = "login.php"  method = "post" enctype="multipart/form-data">
-                <div class = "modal-dialog">
-                    <div class="modal-content">
+           <!--  <div id = "openModal2" class = "modal">
+                <div class = "notice">
+                    <div class="modal-content notice-content">
                         <div class="modal-header">
                           <h3 class="modal-title">Уведомления</h3>
                           <a href="#close" text="Close" class="close">×</a>
@@ -95,21 +94,16 @@
                        <?php
                          $notice = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"), "SELECT bron.`id`, `id_user`, hotels.`title`,`id_hotel`,`telephone`, bron.`surname`, bron.`name`, bron.`patronymic` FROM `bron` JOIN `users` ON `id_user` = users.`id` JOIN `hotels` ON `id_hotel` = hotels.`id` WHERE $username[id] = hotels.`user_id`");
                         /*  $notice2 = mysqli_fetch_array($notice); */
-                         foreach($notice as $not){ ?>
-                            <li class = "nav__item"><a><?=$not['title'];?></a></li>
-                            <li class = "nav__item"><a><?=$not['surname'];?></a></li>
-                            <li class = "nav__item"><a><?=$not['name'];?></a></li>
-                            <li class = "nav__item"><a><?=$not['patronymic'];?></a></li>
-                            <li class = "nav__item"><a><?=$not['telephone'];?></a></li>
+                        foreach($notice as $not){ ?>
+                         <div class = "notice-block">
+                            <h3><?= $not['surname']; ?> <?= $not['name'];?> <?=$not['patronymic'];?> оставил заявку на бронирование:<?=$not['title'];?></h3>
+                            <h3>Связаться можно по телефону:<?=$not['telephone'];?></h3>
+                         </div>
                          <?}
-                         //echo($notice2['id'].'тест');
-                          /* print_r($notice);  */
-                         /*  echo($notice2['surname']); */
                        ?>
                     </div>
                 </div>
-                </form>
-            </div>
+            </div> -->
         </header>
     <main class = "container">
         <?=$page_content;?>
