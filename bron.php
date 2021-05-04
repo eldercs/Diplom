@@ -29,9 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
     }
     else{
-        $creator = fetchOne($con, "SELECT * FROM `hotels` WHERE `id` = $lotId");
+        $hotel = fetchOne($con, "SELECT * FROM `hotels` WHERE `id` = $lotId");
         //print_r($creator);
-        $sql = "INSERT INTO `bron` (`id_user`, `id_creator`, `telephone`, `surname`, `name`, `patronymic`) VALUES ('$username[id]', '$creator[user_id]', ?, ?, ?, ?)";
+        $sql = "INSERT INTO `bron` (`id_user`, `id_hotel`, `telephone`, `surname`, `name`, `patronymic`) VALUES ('$username[id]', '$hotel[id]', ?, ?, ?, ?)";
         $add_st = mysqli_prepare($con, $sql);
 
         mysqli_stmt_bind_param($add_st,'isss',  $pos['telephone'], $pos['surname'], $pos['name'],$pos['patronymic']);
