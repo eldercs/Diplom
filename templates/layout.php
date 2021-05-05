@@ -25,7 +25,7 @@
                     <a href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
                 <?php endif; ?>
                 <ul class="header-item">
-                    <li class = "add-number"><a href =  "add.php" class = "nav-button">Добавить номер</a></li>
+                    <li class = "add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
                     <?php if($username): ?>
                     <div class = "user-block">
                         <img src="<?=$username['avatar']; ?>" width="40" height="40" alt="Пользователь">
@@ -49,12 +49,7 @@
                     <?php
                     }
                     ?> 
-                   <!--  <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "1" id = "1">Отели</a></li>
-                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "2" id = "2">Аппартаменты/квартиры</a></li>
-                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "3" id = "3">Курортные отели</a></li>
-                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "4" id = "4">Виллы</a></li>
-                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "5" id = "5">Шале</a></li>
-                    <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>" name = "6" id = "6">Котеджи</a></li> -->
+
                     </ul>
                 </section>
             </nav>

@@ -152,7 +152,7 @@ function setVote(type, element){
                     <div class="lot-info">
                       <div class="lot__state">
                         <p class="lot__title lot__text"><?= $val['title'];?></p>
-                        <p class = "lot__text lot__category"><?= $val['category'];?></p>
+                        <p class="lot__text lot__category"><?= $val['category'];?></p>
                         <p class="lot__country lot__text"><?= $val['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val['price'];?><b class="rub">р</b></p>
                         <a class="lot__button lot__text" href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>

@@ -8,6 +8,17 @@ try {
 } catch (Exception $e) {
     renderErrorTemplate($e->getMessage(), $username);
 }
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $idH = $_POST;
+    $delete_bron = (int)$idH['delete'];
+
+    $sql = mysqli_query($con,"SELECT count(*) FROM `bron` WHERE id = $delete_bron") or die(mysqli_error()); 
+    $result = mysqli_fetch_row($sql);
+    if($result[0] > 0){
+        mysqli_query($con,"DELETE FROM `bron` WHERE id = $delete_bron "); 
+    }
+    header("Location: /notice.php");
+}
 $page_content = shablon(
     'notice',
     [
