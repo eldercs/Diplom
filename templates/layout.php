@@ -7,6 +7,7 @@
         <title><?= $title ?> </title>
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet"  href="/build/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../dist/duDialog.css">
     </head>
     <body>
         <header class = "header">

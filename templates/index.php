@@ -81,7 +81,7 @@ function setVote(type, element){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val2[id]");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
-                      <a href = "#openModal2" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
+                      <a href = "#openModal2<?=$val2['id'];?>" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
                     
                       <? } 
                       }?>
@@ -97,7 +97,7 @@ function setVote(type, element){
                     </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      
-                      <div id = "openModal2" class = "modal">
+                      <div id = "openModal2<?=$val2['id'];?>" class = "modal">
                         <div class = "modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -144,7 +144,7 @@ function setVote(type, element){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
-                      <a href = "#openModal2" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
+                      <a href = "#openModal2<?=$val2['id'];?>" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
                       <? } 
                       }?>
                      <!--  <p><?=$val['id'];?></p> -->
@@ -159,7 +159,7 @@ function setVote(type, element){
                       </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      
-                      <div id = "openModal2" class = "modal">
+                      <div id = "openModal2<?=$val2['id'];?>" class = "modal">
                         <div class = "modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
