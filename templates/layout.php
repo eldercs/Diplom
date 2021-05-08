@@ -23,16 +23,18 @@
                    </svg> -->
                 </a>
                 <?php if($username): ?>
-                    <a href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
+                    <a class = "link-notice" href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
                 <?php endif; ?>
                 <ul class="header-item">
                     <li class = "add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
                     <?php if($username): ?>
-                    <div class = "user-block">
+                    <div class = "user-image">
                         <img src="<?=$username['avatar']; ?>" width="40" height="40" alt="Пользователь">
                     </div>
-                    <li><?=$username['name']; ?></li>
-                    <li><a href="/logout.php">Выход</a></li>
+                    <div class = "user-block">
+                        <li><?=$username['name']; ?></li>
+                        <li><a href="/logout.php">Выход</a></li>
+                    </div>
                     <?php else: ?>
                     <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
                     <li class = "auto"><a href = "#openModal" class = "nav-button">Авторизоваться</a></li>
