@@ -97,24 +97,25 @@ function setVote(type, element){
                     </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      
-                      <div id = "openModal2<?=$val2['id'];?>" class = "modal">
+                      <div id = "openModal2<?=$val2['id'];?>" class = "modal" tabindex="-1">
                         <div class = "modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
                           <h3 class="modal-title">Вы уверены, что хотите удалить выбранный номер ?</h3>
                         </div>
                         <div class="modal-body">
-                            <div class="form__item">
+                            <div class="delete-form__hotel">
                             <form action="delete_hotel.php" method = "post" enctype="multipart/form-data">
                               <input type="hidden" id="delete" name = "delete" value="<?=$val2['id'];?>" />
                               <input type="hidden" id="delete-img" name = "delete-img" value="<?=$val2['title_image'];?>" />
-                              <button type = "submit" class="<?=$hidden;?> delete_button">Да</button>
+                              <button type = "submit" class="<?=$hidden;?> delete_button red__button">Да</button>
                             </form>
                             <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+                            <div class="form__item--last delete-form__close">
+                              <a href="#close" class = "delete__close red__button">Нет</a>
                             </div>
-                            <div class="form__item form__item--last">
-                              <a href="#close">Нет</a>
                             </div>
+                            
                         </div>
                         </div>
                       </div>

@@ -1,6 +1,7 @@
 @text:rgb(51, 49, 44); // цвет текста в header
 .header{
     background-color:rgb(243, 247, 215);
+    border-bottom:1px solid rgb(230, 224, 154);
 }
 .header-logo{
     margin-left:20px;
@@ -60,9 +61,11 @@
 
 .promo__list{
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
     list-style-type: none;
     padding:0 20px;
+
     a{
         font-size:18px;
         color:rgb(48, 151, 177);
@@ -71,6 +74,7 @@
 .header-nav{
     width:1140px;
     margin:0 auto;
+    
 }
 
 /* ::-webkit-scrollbar-button {
