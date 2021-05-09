@@ -75,7 +75,7 @@ function setVote(type, element){
             foreach($like_post as $val2): ?>
               <li>
               <div class="lot__image">
-                      <img src="<?= $val2['title_image'];?>" class = "hotel-image" width="350" height="260" alt="Home1">
+                      <img src="<?= $val2['title_image'];?>" class = "hotel-image" width="320" height="250"  alt="Home1">
                       <?php 
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val2[id]");
@@ -138,7 +138,7 @@ function setVote(type, element){
             foreach($table_array as $val): ?>
               <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['title_image'];?>" class = "hotel-image" width="350" height="260" alt="Home1">
+                      <img src="<?= $val['title_image'];?>" class = "hotel-image" width="320" height="250" alt="Home1">
                       <?php 
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
