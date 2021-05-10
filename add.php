@@ -3,7 +3,7 @@ require_once 'functions.php';
 require_once "init.php";
 require_once "username.php";
 if($username == null){
-    header("Location: /login.php");
+    header("Location: /#openModal");
     exit();
 }
 try {

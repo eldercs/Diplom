@@ -59,6 +59,7 @@ function setVote(type, element){
 	});
 }
 </script>
+
         <form class = "scan" action="search.php" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
             <label for="search" class = "label__price">Цена</label>
@@ -102,6 +103,7 @@ function setVote(type, element){
                         <div class="modal-content">
                         <div class="modal-header">
                           <h3 class="modal-title">Вы уверены, что хотите удалить выбранный номер ?</h3>
+                          <a href="#close" text="Close" class="close">×</a>
                         </div>
                         <div class="modal-body">
                             <div class="delete-form__hotel">
@@ -165,6 +167,7 @@ function setVote(type, element){
                         <div class="modal-content">
                         <div class="modal-header">
                           <h3 class="modal-title">Вы уверены, что хотите удалить выбранный номер ?</h3>
+                          <a href="#close" text="Close" class="close">×</a>
                         </div>
                         <div class="modal-body">
                             <div class="form__item">

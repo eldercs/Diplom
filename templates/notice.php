@@ -13,6 +13,7 @@
                         <div class="modal-content">
                         <div class="modal-header">
                           <h3 class="modal-title">Вы уверены, что хотите удалить выбранную бронь ?</h3>
+                          <a href="#close" text="Close" class="close">×</a>
                         </div>
                         <div class="modal-body">
                             <div class="delete-form__hotel">

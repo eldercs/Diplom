@@ -16,13 +16,9 @@
                   <!-- <span class="form__error2"><?=isset($errors['name'])? $errors['name'] : "";?></span> -->
                 </div>
                 <div class="form__item form__container">
-                  <label for="username">Ник*</label>
-                  <input id="username" type="text" name="username" placeholder="Введите ник">
-                  <!-- <span class="form__error2"><?=isset($errors['username'])? $errors['username'] : "";?></span> -->
-                </div>
-                <div class="form__item form__container">
-                  <label for="message">Контактные данные*</label>
-                  <textarea id="message" class = "message__text" name="contacts" placeholder="Напишите как с вами связаться"></textarea>
+                  <label for="telephone">Телефон*</label>
+                  <input id="telephone" type="number" name="telephone" placeholder="Введите телефон">
+                  <!-- <textarea id="message" class = "message__text" name="contacts" placeholder="Напишите как с вами связаться"></textarea> -->
                   <!-- <span class="form__error2"><?=isset($errors['contacts'])? $errors['contacts'] : "";?></span> -->
                 </div>
                 <div class="form__item form__item--file form__item--last">

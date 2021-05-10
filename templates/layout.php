@@ -36,7 +36,7 @@
                         <li><a href="/logout.php">Выход</a></li>
                     </div>
                     <?php else: ?>
-                    <li class = "register"><a href = "sign-up.php" class = "nav-button">Зарегистрироваться</a></li>
+                    <li class = "register"><a href = "#modal-signup" class = "nav-button">Зарегистрироваться</a></li>
                     <li class = "auto"><a href = "#openModal" class = "nav-button">Авторизоваться</a></li>
                     <?php endif; ?>
                 </ul>
@@ -76,6 +76,24 @@
                             <div class="form_button">
                                 <button class = "button__login red__button" type="submit">Войти</button>
                                 <a class="text-register" href="/sign-up.php">Зарегистрироваться</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div id = "modal-signup" class = "modal">
+                <form action = "login.php"  method = "post" enctype="multipart/form-data">
+                <div class = "modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title">Выберите тип учетное записи</h3>
+                          <a href="#close" text="Close" class="close">×</a>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form_button">
+                                <a class = "red__button" href="/sign-up-owner.php">Владалец номера</a>
+                                <a class="red__button" href="/sign-up.php">Обычный пользователь</a>
                             </div>
                         </div>
                     </div>

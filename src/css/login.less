@@ -46,22 +46,17 @@
   }
 .modal {
     position: fixed;
-    /* фиксированное положение */
     top: 0px;
     right: 0;
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
-    /* цвет фона */
     z-index: 1050;
     opacity: 0;
-    /* по умолчанию модальное окно прозрачно */
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
-    /* анимация перехода */
     pointer-events: none;
-    /* элемент невидим для событий мыши */
 }
 
     .modal:target {
@@ -152,7 +147,8 @@
     }
 .modal-text{
     width: 100%;
-    padding: 0 0 10px 0;
+    font-size:22px;
+    padding: 0 0 5px 0;
     margin-bottom:25px;
     border: none;
     border-bottom: 1px solid #e0e0e0;
