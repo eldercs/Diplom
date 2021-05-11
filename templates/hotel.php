@@ -52,7 +52,12 @@
         echo($result[0]); */
          if($username['id']){ ?>
         <div class = "button-bron">
+            <?php  
+            $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
+            $result = mysqli_fetch_row($sql);
+            if($result[0] == 0){ ?>
             <a href="#openModal3">Забронировать</a>
+            <? }?>
         </div>
         <? } 
         else{ ?>
