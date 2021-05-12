@@ -33,16 +33,34 @@
       </div>
     <div class="form__item form__item--file form__item--last">
       <label>Изображение</label>
-
-      <input  type="file" name="img" id="input__file" class="input input__file">
+      <br>
+      <img id="output" src=""  onload="alert('Файл существует!');" max-height="200"  width="250" />
+      <input type='file' id="input__file" name="img"  class="input input__file" onchange="loadFile(event, 1)"/>
       <label for="input__file" class="input__file-button">
         <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
         <span class="input__file-button-text">Выберите файл</span>
       </label>
+         
+
+    </div>
+    <!--   <input  type="file" name="img" id="input__file" class="input input__file">
+      <label for="input__file" class="input__file-button">
+        <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
+        <span class="input__file-button-text">Выберите файл</span>
+      </label> -->
 <!-- </div> -->
       <script src = "src/js/file_load.js">  </script>
       <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
     </div>           
   <button type="submit" class="add__button red__button">Добавить лот</button>
 </form>
-    
+<script>
+  var loadFile = function(event, id) {
+    if(id == 1)
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>

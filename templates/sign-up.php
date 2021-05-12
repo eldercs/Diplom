@@ -23,7 +23,15 @@
                 </div>
                 <div class="form__item form__item--file form__item--last">
                   <label>Аватар</label>
-                  <div class="preview">
+                  <br>
+                  <img id="output" src="" onload="alert('Файл существует!');" max-height="100"  width="200" />
+                  <input type='file' id="input__file" name="avatar"  class="input input__file" onchange="loadFile(event, 1)"/>
+                  <label for="input__file" class="input__file-button">
+                    <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
+                    <span class="input__file-button-text">Выберите файл</span>
+                  </label>
+
+                <!--   <div class="preview">
                     <button class="preview__remove" type="button">x</button>
                     <div class="preview__img">
                       <img src="<?=isset($gif['img'])? $gif['img'] : '';?>" width="113" height="113" alt="ава">
@@ -33,7 +41,7 @@
                   <label for="input__file" class="input__file-button">
                   <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
                   <span class="input__file-button-text">Выберите файл</span>
-                  </label>
+                  </label> -->
                   <script src = "src/js/file_load.js"></script>
                   <span class="form__error2"></span>
                 </div>
@@ -42,8 +50,17 @@
                 <!-- <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span> -->
                   <button type="submit" class="button red__button">Зарегистрироваться</button>
                  
-                  <a class="text-link" href="/login.php">Уже есть аккаунт</a>
+                  <a class="text-link" href="#openModal">Уже есть аккаунт</a>
                 </div>
 </form>
-      
+<script>
+  var loadFile = function(event, id) {
+    if(id == 1)
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
     

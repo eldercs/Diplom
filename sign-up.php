@@ -66,7 +66,7 @@ if($_POST){
             } catch (Exception $e) {
                 renderErrorTemplate($e->getMessage(), $username);
             }
-           header("Location: /login.php");
+           header("Location: /index.php#openModal");
            exit();
         }
      
