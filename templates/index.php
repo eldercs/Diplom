@@ -62,6 +62,7 @@ function setVote(type, element){
 
         <form class = "scan" action="search.php" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
+            <input type="search" class = "scan-city" id = "city_search" name="city_search" placeholder="Город:" autocomplete="off">
             <label for="search" class = "label__price">Цена</label>
             <input type="search" class = "scan-price" id = "price_search" name="price_search" placeholder="от:" autocomplete="off">
             <input type="search" class = "scan-price" id = "price_search2" name="price_search2" placeholder="до:" autocomplete="off">
