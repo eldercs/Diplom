@@ -1,3 +1,6 @@
+.auto-min{
+    display:none;
+}
 .login-email, .login-password{
     width:400px;
 }
@@ -155,4 +158,21 @@
     background-color: transparent; 
     outline: none;
     transition: 0.3s;
+}
+@media(min-width:320px)and(max-width:1110px){
+    .auto-min{
+        display:block;
+    }
+    .auto{
+        display:none;
+    }
+    .container-login{
+        text-align: center;
+    }
+    .login-email, .login-password {
+        margin:0 auto;
+    }
+    .button__login{
+        text-align: center;
+    }
 }

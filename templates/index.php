@@ -201,6 +201,7 @@ function setVote(type, element){
         <?=shablon('pager', [
           'pages' => $pages,
           'pages_count' => $pages_count,
+          'id' => $id,
           'cur_page' => $cur_page
         ]);?>
         </section>

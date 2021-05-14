@@ -41,6 +41,7 @@
                     <?php else: ?>
                     <li class = "register"><a href = "#modal-signup" class = "nav-button">Зарегистрироваться</a></li>
                     <li class = "auto"><a href = "#openModal" class = "nav-button">Авторизоваться</a></li>
+                    <li class = "auto-min"><a href = "login.php" class = "nav-button">Авторизоваться</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
