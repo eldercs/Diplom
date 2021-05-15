@@ -63,6 +63,7 @@ function setVote(type, element){
         <form class = "scan" action="search.php" method="get">
             <input type="search" class = "scan-input" id = "search" name="search" placeholder="Поиск:" autocomplete="off">
             <input type="search" class = "scan-city" id = "city_search" name="city_search" placeholder="Город:" autocomplete="off">
+            <br class = "br-min">
             <label for="search" class = "label__price">Цена</label>
             <input type="search" class = "scan-price" id = "price_search" name="price_search" placeholder="от:" autocomplete="off">
             <input type="search" class = "scan-price" id = "price_search2" name="price_search2" placeholder="до:" autocomplete="off">
@@ -73,11 +74,12 @@ function setVote(type, element){
         <section class = "main-like">
             <h2 class = "lots-title">Дома которые нравятся гостям</h2>
             <ul class = "lots__list">
-            <?php
+            <?php $i = 0;
             foreach($like_post as $val2): ?>
-              <li>
+              <li class = "l<?=$i;?>">
+              <?php $i++; ?>
               <div class="lot__image">
-                      <img src="<?= $val2['title_image'];?>" class = "hotel-image" width="320" height="250"  alt="Home1">
+                      <img src="<?= $val2['title_image'];?>" class = "hotel-image"  alt="Home1">
                       <?php 
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val2[id]");

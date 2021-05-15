@@ -203,6 +203,9 @@
   background-color:white;
 }
 .hotel-image{
+  margin:0 auto;
+  width:320px;
+  height:240px;
   z-index:2;
 }
 .lot__state{
@@ -253,9 +256,90 @@
 .delete-form__close{
   margin-top:15px;
 }
+.br-min{
+  display:none;
+}
 @media(min-width:320px)and(max-width:1110px){
   .container{
       margin-top:20px;
       max-width:1110px;
+  }
+}
+@media(min-width:320px)and(max-width:576px){
+  body{
+    width:576px;
+  }
+  .container{
+    max-width:576px;
+    min-width:320px;
+  }
+  .l1, .l2{
+    display:none;
+  }
+  .lots__list{
+    padding:0;
+    li{
+      margin:0 auto;
+    }
+  }
+.scan{
+  .label__price{
+    margin-top:20px;
+    margin-left:0;
+  }
+  .scan-price{
+    margin-top:20px;
+    margin-left:5px;
+  }
+  .scan-btn{
+    margin-left:5px;
+    padding:10px 30px;
+  }
+}
+.pager-list{
+  justify-content: center;
+}
+
+  .br-min{
+    display:block;
+  }
+  /* .l0{
+    width:740px;
+    margin:0 auto;
+  } */
+  /* .lots__list{
+    li{
+      padding-bottom:50px;
+    }
+  }
+  .lot__image{
+    max-width:100%;
+  }
+  .lot__text{
+    font-size:20px;
+  }
+  .lot__button{
+    padding:20px 30px;
+  }
+  .lot__title{
+    font-size:30px;
+  }
+  .count__like{
+    top:10px;
+    font-size:20px;
+    padding-left:60px;
+  }
+  .like{
+    top:170px;
+    height:75px;
+    width:75px;
+  }
+  .hotel-image{
+    min-width:720px;
+    height:100%;
+    margin:0 auto;
+  } */
+  .lots-title{
+    text-align: center;
   }
 }
