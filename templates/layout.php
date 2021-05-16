@@ -14,8 +14,8 @@
             <div class = "header-top">
             <div class="main-header">
                 <a href="index.php" class="header-logo">
-                    <img src="/build/img/dadayan.png" alt="dadayan" class = "dadayan"  >
-
+                    <img src="/build/img/dadayan.png" alt="dadayan" class = "dadayan" >
+                    <img src="/build/img/logomin.png" alt="dadayan" class = "dadayan-min" >
                 </a>
                 <?php if($username['role'] == 1): ?>
                     <a class = "link-notice" href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>

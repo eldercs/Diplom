@@ -259,6 +259,9 @@
 .br-min{
   display:none;
 }
+.slider-controls{
+  display:none;
+}
 @media(min-width:320px)and(max-width:1110px){
   .container{
       margin-top:20px;
@@ -273,8 +276,11 @@
     max-width:576px;
     min-width:320px;
   }
-  .l1, .l2{
+  .l0, .l1, .l2{
     display:none;
+  }
+  .slide-show{
+    display:block;
   }
   .lots__list{
     padding:0;
@@ -300,46 +306,40 @@
   justify-content: center;
 }
 
-  .br-min{
-    display:block;
-  }
-  /* .l0{
-    width:740px;
-    margin:0 auto;
-  } */
-  /* .lots__list{
-    li{
-      padding-bottom:50px;
-    }
-  }
-  .lot__image{
-    max-width:100%;
-  }
-  .lot__text{
-    font-size:20px;
-  }
-  .lot__button{
-    padding:20px 30px;
-  }
-  .lot__title{
-    font-size:30px;
-  }
-  .count__like{
-    top:10px;
-    font-size:20px;
-    padding-left:60px;
-  }
-  .like{
-    top:170px;
-    height:75px;
-    width:75px;
-  }
-  .hotel-image{
-    min-width:720px;
-    height:100%;
-    margin:0 auto;
-  } */
+.br-min{
+  display:block;
+}
+.slider-controls{
+  display:flex;
+  justify-content: space-between;
+  position:absolute;
+  top:600px;
+  left:50px;
+  width:470px;
+}
+.btn-slider{
+  background:white;
+  border:none;
+}
   .lots-title{
     text-align: center;
+  }
+  .togglers{
+    display:flex;
+    position:absolute;
+    top:880px;
+    left:50%;
+  }
+  .slider-toggler{
+    display: block;
+    margin-right: 10px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgb(207, 205, 178);
+    border-radius: 50%;
+    background-color: rgb(192, 63, 74);
+  }
+  .slider-toggler-active{
+    background-color:white;
   }
 }
