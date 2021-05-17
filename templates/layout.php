@@ -119,7 +119,7 @@
          </ul>
         </nav>
         <div class = "main__footer">
-            <p>© 2020-2021 Комания «Dadayan» <br>
+            <p class = "company-contact">© 2020-2021 Комания «Dadayan» <br>
                 Все права защищены
             </p>
             <ul class = "social">

@@ -138,6 +138,7 @@ function setVote(type, element){
               </li>
               <?php endforeach ?>
             </ul>
+           <?php if($i > 2){ ?>
             <div class="slider-controls">
               <button class="btn btn-slider js-control-prev" type="button" aria-label="Предыдущий слайд">
                 <svg width="22" height="40" viewBox="0 0 22 40"><path fill="grey" d="M19.83-.035l2.089 2.099L4.13 19.947l17.847 17.939-2.09 2.099L-.048 19.947z"/></svg>
@@ -151,6 +152,21 @@ function setVote(type, element){
               <span class="slider-toggler js-toggler-2"></span>
               <span class="slider-toggler js-toggler-3"></span>
             </div>
+            <? } else if($i == 2){ ?>
+            
+              <div class="slider-controls">
+              <button class="btn btn-slider js-control-prev2" type="button" aria-label="Предыдущий слайд">
+                <svg width="22" height="40" viewBox="0 0 22 40"><path fill="grey" d="M19.83-.035l2.089 2.099L4.13 19.947l17.847 17.939-2.09 2.099L-.048 19.947z"/></svg>
+              </button>
+              <button class="btn btn-slider js-control-next2" type="button" aria-label="Следующий слайд">
+                <svg width="22" height="40" viewBox="0 0 22 40"><path fill="grey" d="M2.098-.035L.009 2.064l17.789 17.883L-.048 37.886l2.089 2.099 19.935-20.038z"/></svg>
+              </button>
+            </div>
+            <div class="togglers">
+              <span class="slider-toggler js-toggler-1 slider-toggler-active"></span>
+              <span class="slider-toggler js-toggler-2"></span>
+            </div>
+            <? } ?>
             <script src="src/js/slider.js"></script>
             <h2 class = "lots-title">Все номера гостиниц</h2>
             <ul class = "lots__list">

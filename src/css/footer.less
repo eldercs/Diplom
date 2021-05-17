@@ -1,7 +1,7 @@
 .page-footer{
    /*  height:100px; */
     background-color:rgb(245, 245, 245);
-    margin-top:60px;
+   // margin-top:60px;
 }
 .main__footer{
     display:flex;
@@ -85,5 +85,18 @@
       font-size:16px;
         padding:5px;
     }
-}
+  }
+  .main__footer{
+    justify-content: space-around;
+    .company-contact, .develop{
+      display:none;
+    }
+    .social{
+      order:1;
+      margin-top:30px;
+    }
+    .email{
+      order:0;
+    }
+  }
 }
