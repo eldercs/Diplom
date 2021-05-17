@@ -1,7 +1,5 @@
 var sliderLink1 = document.querySelector(".js-control-prev");
 var sliderLink2 = document.querySelector(".js-control-next");
-var sliderLink3 = document.querySelector(".js-control-prev2");
-var sliderLink4 = document.querySelector(".js-control-next2");
 var slider1 = document.querySelector(".l0");
 var slider2 = document.querySelector(".l1");
 var slider3 = document.querySelector(".l2");
@@ -52,27 +50,5 @@ sliderLink2.addEventListener("click", function (evt) {
   toggler1.classList.remove("slider-toggler-active");
   toggler2.classList.remove("slider-toggler-active");
   toggler3.classList.add("slider-toggler-active");
-  }
-});
-
-sliderLink3.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  if(i == 2){
-    slider1.classList.add("slide-show");
-    slider2.classList.remove("slide-show");
-    i--;
-    toggler1.classList.add("slider-toggler-active");
-    toggler2.classList.remove("slider-toggler-active");
-  }
-});
-
-sliderLink4.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  if(i == 1){
-  slider2.classList.add("slide-show");
-  slider1.classList.remove("slide-show");
-  toggler2.classList.add("slider-toggler-active");
-  toggler1.classList.remove("slider-toggler-active");
-  i++;
   }
 });

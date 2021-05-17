@@ -152,6 +152,7 @@ function setVote(type, element){
               <span class="slider-toggler js-toggler-2"></span>
               <span class="slider-toggler js-toggler-3"></span>
             </div>
+            <script src="src/js/slider.js"></script>
             <? } else if($i == 2){ ?>
             
               <div class="slider-controls">
@@ -167,7 +168,7 @@ function setVote(type, element){
               <span class="slider-toggler js-toggler-2"></span>
             </div>
             <? } ?>
-            <script src="src/js/slider.js"></script>
+            <script src="src/js/slider2.js"></script>
             <h2 class = "lots-title">Все номера гостиниц</h2>
             <ul class = "lots__list">
             <?php
