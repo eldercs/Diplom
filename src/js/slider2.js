@@ -4,7 +4,7 @@ var slider1 = document.querySelector(".l0");
 var slider2 = document.querySelector(".l1");
 var toggler1 = document.querySelector(".js-toggler-1");
 var toggler2 = document.querySelector(".js-toggler-2"); 
-sliderLink3.addEventListener("click", function (evt) {
+  sliderLink3.addEventListener("click", function (evt) {
     evt.preventDefault();
     slider1.classList.add("slide-show");
     slider2.classList.remove("slide-show");

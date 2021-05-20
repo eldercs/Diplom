@@ -1,17 +1,4 @@
-<style>
-.one_news span {
-    border: 1px dotted;
-    cursor: pointer;
-    display: block;
-    margin-bottom: 5px;
-    text-align: center;
-    width: 85px;
-}
-.one_news span:hover{
-	border: 1px solid;
-}
 
-</style>
 <script>
 $(document).ready(function() {
 	$('button#like').click(function(){
@@ -73,6 +60,9 @@ function setVote(type, element){
         <hr class="hr-shelf">
         <section class = "main-like">
             <h2 class = "lots-title">Дома которые нравятся гостям</h2>
+            <?php if($username['role'] == 1): ?>
+              <a href="index.php?iduser=<?=$username['id']?>" class = "user__button lot__text">Отобразить свои номера</a>
+            <?php endif; ?>
             <ul class = "lots__list">
             <?php $i = 0;
             foreach($like_post as $val2): ?>
