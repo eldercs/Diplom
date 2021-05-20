@@ -23,7 +23,7 @@
                 <ul class="header-item">
                 <?php 
                 if($username['role'] == 1){?>
-                    <li class = "add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
+                    <li class = "red__button add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
                 <?php }
                 else if($username['role'] == 3){ ?>
                     <li class = "add-number"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>

@@ -61,7 +61,7 @@ function setVote(type, element){
         <section class = "main-like">
             <h2 class = "lots-title">Дома которые нравятся гостям</h2>
             <?php if($username['role'] == 1): ?>
-              <a href="index.php?iduser=<?=$username['id']?>" class = "user__button lot__text">Отобразить свои номера</a>
+              <a href="index.php?iduser=<?=$username['id']?>" class = "user__button lot__text red__button">Отобразить свои номера</a>
             <?php endif; ?>
             <ul class = "lots__list">
             <?php $i = 0;
@@ -87,7 +87,7 @@ function setVote(type, element){
                         <p class = "lot__text lot__category"><?= $val2['category'];?></p>
                         <p class="lot__country lot__text"><?= $val2['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val2['price'];?><b class="rub">р</b></p>
-                        <a class="lot__button lot__text" href="hotel.php?key=<?=$val2['id'];?>">Подробнее</a>
+                        <a class="lot__button lot__text red__button" href="hotel.php?key=<?=$val2['id'];?>">Подробнее</a>
                     </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      

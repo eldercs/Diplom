@@ -29,9 +29,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
     }
     else{
+        $months = array( 1 => 'Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь' );
+        $day = date('d '. $months[date( 'n' )] .' Y H:i:s');
         $hotel = fetchOne($con, "SELECT * FROM `hotels` WHERE `id` = $lotId");
         //print_r($creator);
-        $sql = "INSERT INTO `bron` (`id_user`, `id_hotel`, `telephone`, `surname`, `name`, `patronymic`) VALUES ('$username[id]', '$hotel[id]', ?, ?, ?, ?)";
+        $sql = "INSERT INTO `bron` (`id_user`, `id_hotel`, `telephone`, `surname`, `name`, `patronymic`,`time`) VALUES ('$username[id]', '$hotel[id]', ?, ?, ?, ?,'$day')";
         $add_st = mysqli_prepare($con, $sql);
 
         mysqli_stmt_bind_param($add_st,'isss',  $pos['telephone'], $pos['surname'], $pos['name'],$pos['patronymic']);
