@@ -26,9 +26,9 @@
                     <li class = "red__button add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
                 <?php }
                 else if($username['role'] == 3){ ?>
-                    <li class = "add-number"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>
+                    <li class = "jurnal red__button"><a href = "jurnal.php" class = "nav-button">Журнал событий</a></li>
+                    <li class = "add-number red__button"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>
                 <?php } ?>
-                
                     <?php if($username): ?>
                     <div class = "user-image">
                         <img src="<?=$username['avatar']; ?>" width="40" height="40" alt="Пользователь">

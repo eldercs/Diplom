@@ -68,9 +68,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_bind_param($add_st,'ssisss', $pos['name'], $pos['category'], $pos['price'],$pos['city'], $pos['description'], $pos['img']);
         mysqli_stmt_execute($add_st);
         
-
         mysqli_query($con, "INSERT INTO hotel_image (`id_hotel`, `image2`, `image3`, `image4`, `image5`) VALUES (LAST_INSERT_ID(), '0', '0', '0', '0')"); 
-
+        /* mysqli_query($con, "INSERT INTO jurnal (`id_creater`, `hotel_title`, `time`) VALUES ('$username[id]', '$pos[name]', '2' )");  */
+        $sql2 = "INSERT INTO `jurnal` (`creator`, `hotel_title`,`time`) VALUES ('$username[name]', ?, NOW())";
+        $add_st2 = mysqli_prepare($con, $sql2);
+        mysqli_stmt_bind_param($add_st2,'s', $pos['name']);
+        mysqli_stmt_execute($add_st2); 
         header("Location: /");
 
     }   

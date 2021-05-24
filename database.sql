@@ -71,3 +71,11 @@ CREATE TABLE bron(
 	CONSTRAINT `bron_fk_1` FOREIGN KEY (`id_user`) REFERENCES `users`(`id`),
 	CONSTRAINT `bron_fk_2` FOREIGN KEY (`id_creater`) REFERENCES `hotels`(`user_id`)
 ); 
+CREATE TABLE jurnal(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_creater INT(20),
+    hotel_title VARCHAR(200),
+    time INT(20),
+	KEY `id_creater` (`id_creater`),
+	CONSTRAINT `jurnal_fk_2` FOREIGN KEY (`id_creater`) REFERENCES `hotels`(`user_id`)
+); 
