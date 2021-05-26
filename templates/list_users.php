@@ -1,9 +1,20 @@
 <?php foreach($list_users as $us): ?>
-<form action="list_users.php"  method = "post" enctype="multipart/form-data">
+<form action="list_users.php"  method = "post" enctype="multipart/form-data" class="users-form">
+<div class = "user-main">
 <div class = "user-info">
-    <p class="user__email"><?= $us['email'];?></p>
-    <p class = "user__name"><?= $us['name'];?></p>
-    <a href = "#deletenotice<?=$us['id']; ?>" class = "red__button delete__notice">Удалить</a>  
+    <p class="user__email">Email: <?= $us['email'];?></p>
+    <p class = "user__name">Имя: <?= $us['name'];?></p>
+    <p class="user__telephone">Телефон: <?= $us['telephone'];?></p>
+    <?php if($us['role'] == '1'){ ?>
+        <p class="user__telephone">Роль: пользователь</p>
+    <?} else if($us['role'] == '2'){ ?>
+        <p class="user__telephone">Роль: менеджер</p>
+    <?} else if($us['role'] == '3'){ ?>
+        <p class="user__telephone">Роль: админ</p>
+    <?} ?>
+
+</div>
+<a href = "#deletenotice<?=$us['id']; ?>" class = "red__button delete__users">Удалить</a>  
 </div>
 <div class = "modal" id = "deletenotice<?=$us['id'];?>" >
     <div class = "modal-dialog">
