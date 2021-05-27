@@ -47,23 +47,19 @@
         </div>
     </div>
     <?php 
-       /*  $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `bron` WHERE `id_user` = $username[id] AND `id_creator` = $table_array[user_id]");
-        $result = mysqli_fetch_row($sql); 
-        echo($result[0]); */
-         if($username['id']){ ?>
+        if($username['id']){ ?>
         <div class = "button-bron">
             <?php  
             $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
             $result = mysqli_fetch_row($sql);
             if($result[0] == 0){ ?>
-            <a href="#openModal3">Забронировать</a>
+                <a href="#openModal3">Забронировать</a>
             <? }?>
         </div>
         <? } 
         else{ ?>
             <div class = "button-bron">
                 <a href="#openModal5" onclick="document.getElementById('openModal5').style.display='block'">Забронировать</a>
-              <!--   <a href="#openModal5">Забронировать</a> -->
             </div>
        <? }?>
     </div>

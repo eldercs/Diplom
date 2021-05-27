@@ -165,7 +165,7 @@ function setVote(type, element){
             foreach($table_array as $val): ?>
               <li class="lots__item lot">
                     <div class="lot__image">
-                      <img src="<?= $val['title_image'];?>" class = "hotel-image" width="320" height="250" alt="Home1">
+                      <img src="<?= $val['title_image'];?>" class = "hotel-image" width="320" height="240" alt="Home1">
                       <?php 
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
@@ -182,7 +182,7 @@ function setVote(type, element){
                         <p class="lot__text lot__category"><?= $val['category'];?></p>
                         <p class="lot__country lot__text"><?= $val['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val['price'];?><b class="rub">р</b></p>
-                        <a class="lot__button lot__text" href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
+                        <a class="lot__button " href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
                       </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      
