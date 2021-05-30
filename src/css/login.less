@@ -159,7 +159,13 @@
     outline: none;
     transition: 0.3s;
 }
-@media(min-width:320px)and(max-width:1110px){
+@media(min-width:320px)and(max-width:576px){
+    .container-login{
+        margin:0;
+    }
+    .modal-dialog{
+        margin:40px auto 0;
+    }
     .auto-min{
         display:block;
     }
@@ -175,6 +181,9 @@
     }
     .form__item--wide{
         width:100%;
+    }
+    .login-password, .login-email{
+        margin:0 auto;
     }
     /* .login-email, .login-password {
         margin:0 auto;

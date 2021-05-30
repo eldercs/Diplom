@@ -27,7 +27,7 @@
                 <?php }
                 else if($username['role'] == 3){ ?>
                     <li class = "jurnal__button red__button"><a href = "jurnal.php" class = "nav-button">Журнал событий</a></li>
-                    <li class = "add-number red__button"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>
+                    <li class = "list__users red__button"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>
                 <?php } ?>
                     <?php if($username): ?>
                     <div class = "user-image">

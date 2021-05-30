@@ -6,7 +6,7 @@
     <option value = "3" id="3">За месяц</option>
     <option value = "4" id="4">За все время</option>
 </select>
-<button type="submit"  class = "red__button jurnal__button">Отсортировать</button>
+<button type="submit"  class = "red__button jurnal__button jurnal__sort">Отсортировать</button>
 </form>
 <?php foreach($jurnal as $jur){ ?>
 <div class = "jurnal-event">
