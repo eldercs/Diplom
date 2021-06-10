@@ -1,7 +1,13 @@
  .container-register{
     width:600px;
-    margin:60px auto 0;
+    margin:0px auto 0;
     padding:0 15px;
+    padding-bottom:87px;
+    button{
+        margin-top:20px;
+        padding:15px 30px;
+        font-size:18px;
+    }
 }
 .sign-up__button{
     display:flex;
@@ -9,16 +15,29 @@
     margin-top:20px;
 } 
 .form__container{
+    margin:20px 0;
+    font-size:18px;
     input, .message__text{
         width:100%;
     }
 }
 .text-link{
-    margin-top:10px;
+    margin-top:34px;
+}
+.text-link-min{
+    display:none;
 }
 @media(min-width:320px)and(max-width:576px){
     .container-register{
         width:100%;
         margin:0;
+    }
+    .text-link{
+        display:none;
+    }
+    .text-link-min{
+        display:block;
+        color:black;
+        margin-top:34px;
     }
 }

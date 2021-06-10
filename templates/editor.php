@@ -44,12 +44,12 @@
                 <?php if($hotel_image['image2']): ?>
                     <div class = "add_editor">
                         <img src="<?=$hotel_image['image2'];?>" class = "image_editor" id="output2" alt="your image" height = "140" />
-                        <img id="output3" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
+                        <img id="output2" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
                     </div>
                 <?php else: ?>
                     <div class = "add_editor">
-                        <img src="/src/img/not-image.png" id="output2" alt="your image" width="140" />
-                        <img id="output3" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
+                        <img src="/src/img/not-image.png" id="output2" class = "image_editor" alt="your image" height="140" />
+                        <img id="output2" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
                     </div>
                 <?php endif; ?>
             </label>
@@ -62,7 +62,7 @@
                     </div>
                 <?php else: ?>
                     <div class = "add_editor">
-                        <img src="/src/img/not-image.png" id="output2" alt="your image" width="140" />
+                        <img src="/src/img/not-image.png" id="output3" alt="your image" height="140" />
                         <img id="output3" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
                     </div>
                 <?php endif; ?>
@@ -77,7 +77,7 @@
                     </div>
                 <?php else: ?>
                     <div class = "add_editor">
-                        <img src="/src/img/not-image.png" id="output2" alt="your image" width="140" />
+                        <img src="/src/img/not-image.png" id="output4" alt="your image" height="140" />
                         <img id="output3" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
                     </div>
                 <?php endif; ?>
@@ -91,7 +91,7 @@
                     </div>
                 <?php else: ?>
                     <div class = "add_editor">
-                        <img src="/src/img/not-image.png" id="output2" alt="your image" width="140" />
+                        <img src="/src/img/not-image.png" id="output5" alt="your image" height="140" />
                         <img id="output3" src="/src/img/add-editor.png" class = "image_editor2" alt="your image"  width="50" />
                     </div>
                 <?php endif; ?>

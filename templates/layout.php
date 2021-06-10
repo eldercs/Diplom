@@ -94,7 +94,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form_button">
-                                <a class = "red__button" href="/sign-up-owner.php">Владалец номера</a>
+                                <a class = "red__button button__meneger" href="/sign-up-owner.php">Менеджер</a>
                                 <a class="red__button" href="/sign-up.php">Обычный пользователь</a>
                             </div>
                         </div>

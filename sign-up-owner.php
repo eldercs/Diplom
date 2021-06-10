@@ -26,8 +26,12 @@ if($_POST){
     foreach($is_numeric as $name2){
         if(!is_numeric($pos[$name2]) || !array_key_exists($name, $pos)){
             $errors[$name] = 'Введите число больше нуля';
-            /* print($errors[$name]);
-            print($name); */
+            print($errors[$name]);
+            print($name); 
+        }
+        else if(strlen($pos[$name]) < 10){
+            $errors[$name]= "Слишком мало символов";
+            print_r($errors[$name]); 
         }
     }
     if (!count($errors)) {
@@ -48,7 +52,7 @@ if($_POST){
             } catch (Exception $e) {
                 renderErrorTemplate($e->getMessage(), $username);
             }
-           header("Location: /login.php");
+            header("Location: /index.php#openModal");
            exit();
         }
      

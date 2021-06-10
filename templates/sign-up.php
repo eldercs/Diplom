@@ -51,6 +51,7 @@
                   <button type="submit" class="button red__button">Зарегистрироваться</button>
                  
                   <a class="text-link" href="#openModal">Уже есть аккаунт</a>
+                  <a class="text-link-min" href="/login.php">Уже есть аккаунт</a>
                 </div>
 </form>
 <script>

@@ -21,12 +21,12 @@
           <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required value="<?= isset($_POST['price'])? $_POST['price'] : ''; ?>">
         </div>
       </div>
-      <div class="form__item form__item--small">
+      <div class="form__item form__item-city">
           <label for="city">Город</label>
           <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required value="<?= isset($_POST['city'])? $_POST['city'] : ''; ?>">
                 <!--  <span class="form__error">Введите шаг ставки</span>  -->
       </div>
-      <div class="form__item form__item--wide">
+      <div class="form__item form__item-description">
         <label for="description">Описание</label>
         <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required value="<?= isset($_POST['description'])? $_POST['description'] : ''; ?>"></textarea>
               <!-- <span class="form__error">Напишите описание номера</span> -->

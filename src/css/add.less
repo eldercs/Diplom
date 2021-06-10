@@ -1,6 +1,10 @@
 .add-container{
   width:1000px;
-  margin:60px auto;
+  margin:0px auto;
+  h2{
+    width:750px;
+    margin:0 auto;
+  }
 }
 
   .form__input-file{
@@ -64,7 +68,20 @@
     margin-top: 1px;
 
   }
-   
+  .form__item-city, .form__item--file{
+    width:750px;
+    margin:0 auto;
+  }
+  .add__button{
+    margin:0 125px;
+  }
+  .form__item-description{
+     margin:20px auto; 
+     width:750px; 
+     textarea{
+      min-height:110px;
+     }
+  }
   .input__file-button {
    // position:absolute;
    z-index: 1;
@@ -88,16 +105,42 @@
     border-radius: 3px;
     cursor: pointer;
   }
+  .form__container-two{
+    display:flex;
+    width:750px;
+    margin:20px auto;
+    /* align-items: center; */
+    justify-content: space-between;
+  } 
 @media(min-width:320px)and(max-width:576px){
   .add-container{
     width:100%;
     padding:0 15px;
+    h2{
+      width:100%;
+    }
   }
   .item-name{
     width:300px;
   }
   .form__container-two{
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    margin:0;
+    align-items: left;
   }
-  
+  .form__item-city, .form__item--file{
+    width:100%;
+    margin:0 auto;
+  }
+  .add__button{
+    margin:0;
+  }
+  .form__item-description{
+     margin:0 auto; 
+     width:100%; 
+     textarea{
+      min-height:110px;
+     }
+  }
 }
