@@ -22,7 +22,7 @@ try {
 
 
 $cur_page = $_GET['page'] ?? 1;
-$page_items = 3;
+$page_items = 9;
 $resutl = mysqli_query($con, "SELECT COUNT(*) as cnt FROM `hotels`");
 $items_count = mysqli_fetch_assoc($resutl)['cnt'];
 $pages_count = ceil($items_count/ $page_items);
@@ -35,7 +35,7 @@ $idiser = 0;
 $iduser = $_GET['iduser'] ?? 0; 
 if($id){
     $cur_page = $_GET['page'] ?? 1;
-    $page_items = 3;
+    $page_items = 9;
     $resutl = mysqli_query($con, "SELECT COUNT(*) as cnt FROM `hotels` JOIN `category` WHERE `category_id` = '$_GET[id]' AND category.`id` = '$_GET[id]'");
     $items_count = mysqli_fetch_assoc($resutl)['cnt'];
     $pages_count = ceil($items_count/ $page_items);
@@ -53,7 +53,7 @@ else{
 }
 if($iduser){
     $cur_page = $_GET['page'] ?? 1;
-    $page_items = 3;
+    $page_items = 9;
     $resutl = mysqli_query($con, "SELECT COUNT(*) as cnt FROM `hotels` JOIN `users` WHERE `user_id` = '$_GET[iduser]' AND users.`id` = '$_GET[iduser]'");
     $items_count = mysqli_fetch_assoc($resutl)['cnt'];
     $pages_count = ceil($items_count/ $page_items);

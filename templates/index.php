@@ -82,8 +82,9 @@ function setVote(type, element){
 
                     </div>
                     <div class="lot-info">
+                    <p class="lot__title lot__text"><?= $val2['title'];?></p>
                       <div class="lot__state">
-                        <p class="lot__title lot__text"><?= $val2['title'];?></p>
+                        
                         <p class = "lot__text lot__category"><?= $val2['category'];?></p>
                         <p class="lot__country lot__text"><?= $val2['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val2['price'];?><b class="rub">р</b></p>
@@ -177,12 +178,13 @@ function setVote(type, element){
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot-info">
+                    <p class="lot__title lot__text"><?= $val['title'];?></p>
                       <div class="lot__state">
-                        <p class="lot__title lot__text"><?= $val['title'];?></p>
+                        
                         <p class="lot__text lot__category"><?= $val['category'];?></p>
                         <p class="lot__country lot__text"><?= $val['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val['price'];?><b class="rub">р</b></p>
-                        <a class="lot__button " href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
+                        <a class="lot__button lot__text red__button" href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
                       </div>
                       <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
                      

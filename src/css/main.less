@@ -11,7 +11,7 @@
   }
   .scan-btn{
     cursor: pointer;
-    background-color:red;
+    background-color:@red;
     height:40px;
     text-align:center;
     border:none;
@@ -72,6 +72,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-self: center;
+
 }
 .container{
   width:1110px;
@@ -121,11 +122,7 @@
     resize: none;
   }
 }
-/* .container-register{
-  width:900px;
-  margin:60px auto;
-  padding:0 15px;
-} */
+
 .message__text{
   height:120px;
 }
@@ -134,9 +131,6 @@
   align-items: flex-end;
 }
 .like{
- /*  position: relative;
-  top:154px; */
-  /* margin-top:auto; */
   margin-right:36px;
   padding:20px;
   width:30px;
@@ -215,9 +209,11 @@
   z-index:2;
 }
 .lot__state{
+  overflow: hidden;
   position:relative;
-  min-height:200px;
+  min-height:100px;
   padding-bottom:20px;
+  margin-top:40px;
 }
 .lots-title{
   margin-top:40px;
@@ -238,7 +234,9 @@
   margin-bottom:20px;
 }
 .lot__title{
-  max-width:240px;
+  position: absolute;
+  width:360px;
+  z-index: 20;
   padding-top:16px;
   font-size:22px;
   font-weight: bold;
@@ -284,19 +282,15 @@
 .one_news span:hover{
   border: 1px solid;
 }
+@red: rgb(199, 38, 38);
 .user__button{
   color:white;
   margin-left:20px;
   padding:15px;
-  background-color:red;
-  /* border-radius: 10px; */
+  background-color:@red;
+  font-weight: 600;
 }
-/* @media(min-width:320px)and(max-width:1110px){
-  .container{
-      margin-top:20px;
-      max-width:1110px;
-  }
-} */
+
 @media(min-width:320px)and(max-width:576px){
   body{
     width:576px;

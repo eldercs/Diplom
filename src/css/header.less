@@ -42,12 +42,12 @@
     width:150px;
 }
 .add-number, .jurnal__button, .list__users{
-    background-color:red;
+    background-color:@red;
     height:50px;
     text-align:center;
     border:none;
     border-radius: 5%;
-    padding:12px 26px;
+    padding:14px 30px;
     margin-top:-5px;
     margin-right:20px;
     font-weight: 600;
@@ -116,7 +116,7 @@
     font-size:16px;
 
 }
-.link-notice{
+.link-notice-min{
     margin-left:auto;
     margin-right:20px;
 }
@@ -129,11 +129,30 @@
         color:white;
     }
 }
+.register:hover, .auto:hover{
+    text-decoration: underline;
+}
+.link-notice-min{
+    display:none;
+}
+.notice__text{
+    color:rgb(121, 37, 37);
+    font-style:italic;
+    margin:10px 10px 10px 0;
+}
 @media(min-width:220px)and(max-width:576px){
     .dadayan-min{
         display:block;
     }
-    
+    .link-notice-min{
+        display:block;
+    }
+    .notice-button{
+        display:none;
+    }
+    .notice__text{
+        display:none;
+    }
     .main-header{
         width:100%;
     }

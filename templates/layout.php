@@ -18,16 +18,26 @@
                     <img src="/build/img/logomin.png" alt="dadayan" class = "dadayan-min" >
                 </a>
                 <?php if($username['role'] == 1): ?>
-                    <a class = "link-notice" href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
+                    <a class = "link-notice-min" href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
                 <?php endif; ?>
                 <ul class="header-item">
                 <?php 
                 if($username['role'] == 1){?>
-                    <li class = "red__button add-number"><a href = "add.php" class = "nav-button">Добавить номер</a></li>
+                <?php 
+                      if($username){
+                      $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `bron` JOIN `hotels` ON `id_hotel` = hotels.`id` WHERE `id_hotel` = hotels.`id` AND hotels.`user_id` = $username[id];");
+                      $result = mysqli_fetch_row($sql);
+                      if($result[0] > 0){ ?>
+                      <p class = "notice__text">У вас новое уведомление!</p>
+                      <? } 
+                      }?>
+                        <a href="notice.php" class = "notice-button add-number nav-button red__button">Уведомления</a>
+                        <a href = "add.php" class = "add-number nav-button red__button">Добавить номер</a>
+                        
                 <?php }
                 else if($username['role'] == 3){ ?>
-                    <li class = "jurnal__button red__button"><a href = "jurnal.php" class = "nav-button">Журнал событий</a></li>
-                    <li class = "list__users red__button"><a href = "list_users.php" class = "nav-button">Список всех пользоваетелей</a></li>
+                    <a href = "jurnal.php" class = "jurnal__button nav-button red__button">Журнал событий</a>
+                    <a href = "list_users.php" class = "list__users nav-button red__button">Список всех пользоваетелей</a>
                 <?php } ?>
                     <?php if($username): ?>
                     <div class = "user-image">
