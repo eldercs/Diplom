@@ -110,7 +110,8 @@
                             <div class="modal__item form__item--last">
                                <!--  <label for="password">Пароль*</label> -->
                                 <label for="surname">Введите вашу фамилию</label>
-                                <input id="surname" class ="modal-text name-bron" type="text" name="surname" placeholder="Фамилия" required>
+                                <input id="surname" class ="modal-text name-bron" type="text" name="surname" placeholder="Фамилия">
+                                <span class="form__error"><?=isset($errors['surname'])? $errors['surname'] : "";?></span>
                             </div>
                             <div class="modal__item form__item--last">
                                <!--  <label for="password">Пароль*</label> -->

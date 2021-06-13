@@ -25,12 +25,12 @@ if($_POST){
     foreach($is_numeric as $name){
         if(!is_numeric($pos[$name]) ||  !array_key_exists($name, $pos)){
             $errors[$name] = 'Введите число больше нуля';
-                print($errors[$name]);
+            //print($errors[$name]);
                 /* print($name);  */
         }
         else if(strlen($pos[$name]) < 10){
             $errors[$name]= "Слишком мало символов";
-            print($errors[$name]);
+            //print($errors[$name]);
         }
     }
     if (!empty($_FILES['avatar']['name'])) {

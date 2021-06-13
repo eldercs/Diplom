@@ -4,7 +4,7 @@
         <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
           <label for="name">Название</label>
           <input id="name" class = "item-name" type="text" name="name" placeholder="Введите название заведения" required value="<?= isset($_POST['name'])? $_POST['name'] : ''; ?>">
-                <!-- <span class="form__error">Введите наименование лота</span> -->
+          <span class="form__error2"><?=isset($errors['name'])? $errors['name'] : "";?></span>
         </div>
         <div class="form__item">
           <label for="category">Категория</label>
@@ -19,17 +19,18 @@
         <div class = "form__item">
           <label for ="price">Цена</label>
           <input id ="price" class ="add-price" type="number" name="price" placeholder="0" required value="<?= isset($_POST['price'])? $_POST['price'] : ''; ?>">
+          <span class="form__error2"><?=isset($errors['price'])? $errors['price'] : "";?></span>
         </div>
       </div>
       <div class="form__item form__item-city">
           <label for="city">Город</label>
           <input id="city" class = "item-city" type="text" name="city" placeholder="Введите город" required value="<?= isset($_POST['city'])? $_POST['city'] : ''; ?>">
-                <!--  <span class="form__error">Введите шаг ставки</span>  -->
+          <span class="form__error2"><?=isset($errors['city'])? $errors['city'] : "";?></span>
       </div>
       <div class="form__item form__item-description">
         <label for="description">Описание</label>
         <textarea id="description" class = "description" name="description" placeholder="Напишите описание номера" required value="<?= isset($_POST['description'])? $_POST['description'] : ''; ?>"></textarea>
-              <!-- <span class="form__error">Напишите описание номера</span> -->
+        <span class="form__error2"><?=isset($errors['description'])? $errors['description'] : "";?></span>
       </div>
     <div class="form__item form__item--file form__item--last">
       <label>Изображение</label>
@@ -40,7 +41,7 @@
         <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
         <span class="input__file-button-text">Выберите файл</span>
       </label>
-         
+      <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
 
     </div>
     <!--   <input  type="file" name="img" id="input__file" class="input input__file">
@@ -50,7 +51,7 @@
       </label> -->
 <!-- </div> -->
       <script src = "src/js/file_load.js">  </script>
-      <span class="form__error2"><?=isset($errors['img'])? $errors['img'] : "";?></span>
+
     </div>           
   <button type="submit" class="add__button red__button">Добавить лот</button>
 </form>

@@ -21,15 +21,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach($requared as $name){
         if (!array_key_exists($name, $pos) || empty($pos[$name])) {
             $errors[$name] = 'Это поле надо заполнить';
-            print($name);
+            //print($name);
         }
     } 
    
    foreach($is_numeric as $name){
     if(!is_numeric($pos[$name]) || intval($pos[$name]) <= 0){
             $errors[$name] = 'Введите число больше нуля';
-            print($errors[$name]);
-            print($name);
+            //print($errors[$name]);
+            //print($name);
         }
     }
     if (!empty($_FILES['img']['name'])) {
@@ -80,7 +80,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 $page_content = shablon(
     'add',
-    [   
+    [    
+        'errors' => $errors,
         'my_array' => $my_array
     ]
 ); 
