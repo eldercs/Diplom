@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $hotel_image = mysqli_query($con, "SELECT `image2`, `image3`, `image4`, `image5` FROM `hotel_image` WHERE `id_hotel` = $id ");
 $hotel_image = mysqli_fetch_assoc($hotel_image);
+//$hotel_title = mysqli_fetch_assoc($hotel_title);
 //print_r($hotel_image);
 foreach($image as $img){
     if (!empty($_FILES[$img]['name'])) {
@@ -54,6 +55,7 @@ foreach($image as $img){
     }
     else if($img != 'image'){
         $pos[$img] = $hotel_image[$img];
+        /* $pos[$img] = $hotel_title[$img]; */
     } 
 } 
 //print_r( $pos);

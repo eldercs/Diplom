@@ -7,7 +7,7 @@
         <div class="editor__image">
             <img src="<?=$table_array['title_image'];?>" id="output" alt="Home1"/>
         </div>
-        <input type="file" id="input__file" class="input input__file"  onchange="loadFile(event, 1)">
+        <input type="file" id="input__file" class="input input__file" name="image"  onchange="loadFile(event, 1)">
             <label for="input__file" class="input__file-button">
                 <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./src/img/add.png" alt="Выбрать файл" width="40"></span>
                 <span class="input__file-button-text">Выберите файл</span>

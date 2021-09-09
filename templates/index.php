@@ -2,7 +2,7 @@
 <script>
 $(document).ready(function() {
 	$('button#like').click(function(){
-    
+
 		setVote('like', $(this));
     //alert("test");
 	});
@@ -14,16 +14,16 @@ function setVote(type, element){
 	// получение данных из полей
 	var id_user = $('#id_user').val();
 	var id_hotels = element.parent().find('#id_hotels').val();
-	
+
 	$.ajax({
-		// метод отправки 
+		// метод отправки
 		type: "POST",
 		// путь до скрипта-обработчика
 		url: "/likes_test.php",
 		// какие данные будут переданы
 		data: {
-			'id_hotels': id_hotels, 
-			'id_user': id_user, 
+			'id_hotels': id_hotels,
+			'id_user': id_user,
 			'type': type
 		},
 		// тип передачи данных
@@ -31,7 +31,7 @@ function setVote(type, element){
 		// действие, при ответе с сервера
 		success: function(data){
 			// в случае, когда пришло success. Отработало без ошибок
-			if(data.result == 'success'){	
+			if(data.result == 'success'){
 				// Выводим сообщение
 				//alert('Голос засчитан');
 				// увеличим визуальный счетчик
@@ -70,28 +70,28 @@ function setVote(type, element){
               <?php $i++; ?>
               <div class="lot__image">
                       <img src="<?= $val2['title_image'];?>" class = "hotel-image"  alt="Home1">
-                      <?php 
+                      <?php
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val2[id]");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
                       <a href = "#openModal2<?=$val2['id'];?>" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
-                    
-                      <? } 
+
+                      <? }
                       }?>
 
                     </div>
                     <div class="lot-info">
                     <p class="lot__title lot__text"><?= $val2['title'];?></p>
                       <div class="lot__state">
-                        
+
                         <p class = "lot__text lot__category"><?= $val2['category'];?></p>
                         <p class="lot__country lot__text"><?= $val2['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val2['price'];?><b class="rub">р</b></p>
                         <a class="lot__button lot__text red__button" href="hotel.php?key=<?=$val2['id'];?>">Подробнее</a>
                     </div>
-                      <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
-                     
+                      <input type="hidden" id="id_user2" value="<?=$username['id'];?>" />
+
                       <div id = "openModal2<?=$val2['id'];?>" class = "modal" tabindex="-1">
                         <div class = "modal-dialog">
                         <div class="modal-content">
@@ -106,24 +106,24 @@ function setVote(type, element){
                               <input type="hidden" id="delete-img" name = "delete-img" value="<?=$val2['title_image'];?>" />
                               <button type = "submit" class="<?=$hidden;?> delete_button red__button">Да</button>
                             </form>
-                            <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+                            <input type="hidden" id="id_user" value="<?=$username['id'];?>" />
                             <div class="form__item--last delete-form__close">
                               <a href="#close" class = "delete__close red__button">Нет</a>
                             </div>
                             </div>
-                            
+
                         </div>
                         </div>
                       </div>
                       </div>
-                    
-                      <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+
+                      <input type="hidden" id="id_user" value="<?=$username['id'];?>" />
                       <div class="one_news">
 		                    <button class = "like" id="like"><b class = "count__like"><?=$val2['count_like'];?></b></button>
 
 		                    <input type="hidden" id="id_hotels" value="<?=$val2['id'];?>" />
 	                    </div>
-              
+
                     </div>
               </li>
               </li>
@@ -145,7 +145,7 @@ function setVote(type, element){
             </div>
             <script src="src/js/slider.js"></script>
             <? } else if($i == 2){ ?>
-            
+
               <div class="slider-controls">
               <button class="btn btn-slider js-control-prev2" type="button" aria-label="Предыдущий слайд">
                 <svg width="22" height="40" viewBox="0 0 22 40"><path fill="grey" d="M19.83-.035l2.089 2.099L4.13 19.947l17.847 17.939-2.09 2.099L-.048 19.947z"/></svg>
@@ -167,27 +167,27 @@ function setVote(type, element){
               <li class="lots__item lot">
                     <div class="lot__image">
                       <img src="<?= $val['title_image'];?>" class = "hotel-image" width="320" height="240" alt="Home1">
-                      <?php 
+                      <?php
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $val[id]");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
                       <a href = "#openModal2<?=$val2['id'];?>" class = "parent-del" text="Close"><img src = "/src/img/delete_button.svg" class = "delete_hotel"><span class = "dop-del">x</span></a>
-                      <? } 
+                      <? }
                       }?>
                      <!--  <p><?=$val['id'];?></p> -->
                     </div>
                     <div class="lot-info">
                     <p class="lot__title lot__text"><?= $val['title'];?></p>
                       <div class="lot__state">
-                        
+
                         <p class="lot__text lot__category"><?= $val['category'];?></p>
                         <p class="lot__country lot__text"><?= $val['city'];?></p>
                         <p class="lot__cost lot__text">От <?= $val['price'];?><b class="rub">р</b></p>
                         <a class="lot__button lot__text red__button" href="hotel.php?key=<?=$val['id'];?>">Подробнее</a>
                       </div>
-                      <input type="hidden" id="id_user2" value="<?=$username['id'];?>" /> 
-                     
+                      <input type="hidden" id="id_user2" value="<?=$username['id'];?>" />
+
                       <div id = "openModal2<?=$val2['id'];?>" class = "modal">
                         <div class = "modal-dialog">
                         <div class="modal-content">
@@ -202,7 +202,7 @@ function setVote(type, element){
                               <input type="hidden" id="delete-img" name = "delete-img" value="<?=$val['title_image'];?>" />
                               <button type = "submit" class="<?=$hidden;?> delete_button">Да</button>
                             </form>
-                            <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+                            <input type="hidden" id="id_user" value="<?=$username['id'];?>" />
                             </div>
                             <div class="form__item form__item--last">
                               <a href="#close">Нет</a>
@@ -211,14 +211,14 @@ function setVote(type, element){
                         </div>
                       </div>
                       </div>
-                    
-                      <input type="hidden" id="id_user" value="<?=$username['id'];?>" /> 
+
+                      <input type="hidden" id="id_user" value="<?=$username['id'];?>" />
                       <div class="one_news">
 		                    <button class = "like" id="like"><b class = "count__like"><?=$val['count_like'];?></b></button>
                         <!-- <span class='hidden'>1 Like</span> -->
 		                    <input type="hidden" id="id_hotels" value="<?=$val['id'];?>" />
 	                    </div>
-              
+
                     </div>
               </li>
             <?php endforeach ?>
@@ -230,6 +230,6 @@ function setVote(type, element){
           'cur_page' => $cur_page
         ]);?>
         </section>
-        
+
 
 

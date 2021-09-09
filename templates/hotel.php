@@ -1,5 +1,40 @@
+<script>
+    $(document).ready(function() {
+	    $('button#comment__button').click(function(){
+		    addComment('comment__button', $(this));
+            /* alert("test"); */
+	    });
+    });
+    function addComment(type, element){
+        var user = $('#user').val();
+        var id_hotels = element.parent().find('#id_hotels').val();
+        var user_comment = $('#hotel__comments-text').val();
+        $.ajax({
+            type: "POST",
+            url: "/comments.php",
+            data:{
+                'user' : user,
+                'id_hotels' : id_hotels,
+                'user_comment' : user_comment,
+            },
+            dataType: "json",
+            success: function(date){
+
+                /* let div = document.createElement('div');
+                div.innerHTML = "<p>Test</p>"
+                comment.before(div) */
+                /* alert(date.error); */
+                if(date.error != true){
+                    start.insertAdjacentHTML('afterend', `<div class = "hotel__comment"><p class = "hotel__comments-text">${date.comment}</p></div>`);
+                    start.insertAdjacentHTML('afterend', `<p class = "commnet__name">${date.user} ${date.day}</p>`);
+                }
+            }
+        });
+    }
+</script>
 <section class = "hotel-details">
-<?php 
+<?php
+/* echo $table_array['id']; */
         if($username){
             $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
             $result = mysqli_fetch_row($sql);
@@ -8,24 +43,24 @@
                 <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-redactor__text" >Редактировать</a>
                 <a href="editor.php?key=<?=$table_array['id']; ?>" class = "editor-redactor__image"><img src = "./src/img/editor-hotel.png" width = "40" class = "editor-redactor__image"></a>
             </div>
-                <? } 
+                <? }
         }?>
     <div>
-        <h2 class = "editor__title"><?=htmlspecialchars($table_array['title']);?></h2> 
+        <h2 class = "editor__title"><?=htmlspecialchars($table_array['title']);?></h2>
         <h3 class="editor__text hotel__category">Категории: <?= htmlspecialchars($table_array['category']);?></h3>
         <h3 class="editor__text hotel__city">Город <?= htmlspecialchars($table_array['city']);?></h3>
-    
-    
+
+
         <div class="hotel__image">
            <img src="<?=$table_array['title_image'];?>" width="1200"  alt="Home1">
           <!--  <?=htmlspecialchars($table_array['title_image']);?> -->
-          
+
         </div>
         <?php foreach($hotel_image as $image): ?>
            <?php if($image){?>
                 <a href="<?=$image;?>" data-lightbox="test"><img src="<?=$image;?>"  class = "hotel_gallery" alt="Home1"></a>
            <?php }?>
-        
+
     <?php endforeach ?>
         </div>
     <div class = "editor-description">
@@ -33,7 +68,7 @@
     <br>
         <h2 class="editor__text editor__description">Описание</h2>
         <div>
-           
+
             <br>
             <span class="editor__text hotel__cost">Цена: от <b class="rub"><?= htmlspecialchars($table_array['price']);?>р</b></span>
             <br>
@@ -46,55 +81,60 @@
             <p class="editor__text editor__description-hotel"><?= nl2br2($table_array['description']);?></p>
         </div>
     </div>
-    <?php 
+    <?php
         if($username['id']){ ?>
         <div class = "button-bron">
-            <?php  
+            <?php
             $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `hotels` WHERE `user_id` = $username[id] AND `id` = $table_array[id]");
             $result = mysqli_fetch_row($sql);
             if($result[0] == 0){ ?>
                 <a href="#openModal3">Забронировать</a>
             <? }?>
         </div>
-        <? } 
+        <? }
         else{ ?>
             <div class = "button-bron">
                 <a href="#openModal5" onclick="document.getElementById('openModal5').style.display='block'">Забронировать</a>
             </div>
        <? }?>
     </div>
-    <div class = "hotel__comments">
+    <div id = "app" class = "hotel__comments">
         <?php if($username): ?>
-        <form name="comment" action="comments.php" method="post">
+        <!-- <form  name="comment" action="comments.php" method="post" @submit="submitHandler" > -->
             <p>
             <label class = "comment__text">Имя: </label>
             <!-- <input type="text" name="name" /> -->
-            <input type = "text" class = "commnet__name" name = "name"  value ="<?=$username['name']; ?>"readonly >
+            <input type = "text" id = "user" class = "commnet__name" name = "name"  value ="<?=$username['name']; ?>"readonly >
             </p>
         <p>
             <label class = "comment__text">Комментарий:</label>
+  <!--           <h2>Новый комментарий: {{age}}</h2> -->
             <br />
-            <textarea style="overflow:hidden;" maxlength="40" name="comment" class = "hotel__comments-text" rows = "4"></textarea>
-        
+            <textarea v-model = "comment" id = "hotel__comments-text" style="overflow:hidden;" maxlength="40" name="comment" class = "hotel__comments-text" rows = "4"></textarea>
+
         </p>
         <p>
-            <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
-            <input class = "comment__button" type="submit" value="Отправить" />
+            <input type="hidden" id="id_hotels" value="<?=$table_array['id'];?>" />
+            <input type="hidden"  name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
+            <button class = "comment__button" id = "comment__button">Отправить</button>
         </p>
-        </form>
+
+        <!-- </form> -->
         <?php endif; ?>
+        <template>
         <p>
-            <label class = "comment__text">Комментарии:</label>
-            
+            <label id = "start" class = "comment__text">Комментарии:</label>
+
             <?php
             foreach($comments as $com => $val): ?>
-            <br />
-            <p class = "commnet__name"><?=htmlspecialchars($val['user']);?> <?=htmlspecialchars($val['date']);?></p>
+            <!-- <br /> -->
+            <p  class = "commnet__name"><?=htmlspecialchars($val['user']);?> <?=htmlspecialchars($val['date']);?></p>
             <div class = "hotel__comment">
-                <p name="comment" class = "hotel__comments-text"><?=nl2br2($val['comment']);?></p>
+                <p id = "new_comment" name="comment" class = "hotel__comments-text"><?=nl2br2($val['comment']);?></p>
             </div>
             <?php endforeach ?>
         </p>
+        </template>
         <p>
         <input type="hidden" name="page_id" value="<?=htmlspecialchars($table_array['id']); ?>" />
         </p>
@@ -141,7 +181,7 @@
         <div id = "openModal4" class = "modal">
                 <div class = "modal-dialog-bron modal-dialog-bron4">
                     <div class="modal-content">
-                        <h3 class="modal-title">Заявка на бронирование отправлена!</h3> 
+                        <h3 class="modal-title">Заявка на бронирование отправлена!</h3>
                         <a class="modal__ok red__button" href="/hotel.php?key=<?=$table_array['id'];?>">Ок</a>
                     </div>
                 </div>
@@ -149,12 +189,45 @@
         <div id = "openModal5" class = "modal">
                 <div class = "modal-dialog-bron modal-dialog-bron4">
                     <div class="modal-content">
-                        <h3 class="modal-title">Авторизуйтесь пожалуйста</h3> 
+                        <h3 class="modal-title">Авторизуйтесь пожалуйста</h3>
                         <a onclick = "document.getElementById('openModal5').style.display='none'" class="modal__ok red__button">Ок</a>
                     </div>
                 </div>
         </div>
     </div>
+    <script>
+        var vue = new Vue({
+            el: '#app',
+            data:{
+                message: "TDAD",
+                comment: '',
+                errors:{
+                    comment: null
+                }
+            },
+            methods:{
+                submitHandler(){
+                    if(this.formValid()){
+                        console.log(this.formValid())
+                        return true
+                    }
+                    event.preventDefault()
+                    return false
+                },
+                formValid(){
+                    let valid = true;
+                    if(this.comment.length === 0){
+                        this.errors.comment = "Введите ваш комментарий"
+                        valid = false
+                    }
+                    else{
+                        this.errors.comment = null
+                    }
+                    return valid
+                }
+            }
+        })
+    </script>
     <script>
     var textarea = document.querySelector('textarea');
 
@@ -163,7 +236,6 @@
     this.style.height = this.scrollHeight + "px";
   }
 });
-</script>
     <?php
         function time2($string) {
             $day = $string + 60*60*24;
@@ -171,5 +243,6 @@
             return $day2;
         }
     ?>
-    <script src = "src/js/lightbox-plus-jquery.js">  </script>
+    </script>
+    <script src = "src/js/lightbox-plus-jquery.js"></script>
 </section>

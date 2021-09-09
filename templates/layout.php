@@ -3,14 +3,29 @@
     <head>
         <meta charset = "UTF-8">
         <meta name ="viewport" content="width=device-width,intial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title><?= $title ?> </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet"  href="/build/css/style.css" />
         <link rel="stylesheet" type="text/css" href="../dist/duDialog.css">
     </head>
     <body>
+
+    <!-- Тест vue js -->
+    <!-- <div id="app2">
+        {{message}}
+    </div>
+    <script>
+        var vue = new Vue({
+            el: '#app2',
+            data:{
+                message: "<?= $username['role']; ?>"
+            }
+        })
+    </script> -->
         <header class = "header">
+            <!-- <h2><?=$username['name'];?></h2> -->
             <div class = "header-top">
             <div class="main-header">
                 <a href="index.php" class="header-logo">
@@ -21,19 +36,19 @@
                     <a class = "link-notice-min" href="notice.php"><img src="/build/img/notice.png" width= "40" alt=""></a>
                 <?php endif; ?>
                 <ul class="header-item">
-                <?php 
+                <?php
                 if($username['role'] == 1){?>
-                <?php 
+                <?php
                       if($username){
                       $sql = mysqli_query(mysqli_connect("localhost", "root", "", "diplom"),"SELECT count(*) FROM `bron` JOIN `hotels` ON `id_hotel` = hotels.`id` WHERE `id_hotel` = hotels.`id` AND hotels.`user_id` = $username[id];");
                       $result = mysqli_fetch_row($sql);
                       if($result[0] > 0){ ?>
                       <p class = "notice__text">У вас новое уведомление!</p>
-                      <? } 
+                      <? }
                       }?>
                         <a href="notice.php" class = "notice-button add-number nav-button red__button">Уведомления</a>
                         <a href = "add.php" class = "add-number nav-button red__button">Добавить номер</a>
-                        
+
                 <?php }
                 else if($username['role'] == 3){ ?>
                     <a href = "jurnal.php" class = "jurnal__button nav-button red__button">Журнал событий</a>
@@ -64,7 +79,7 @@
                        <li class = "nav__item"><a href = "index.php?id=<?=$val['id']?>"> <?= $val['category']; ?></a></li>
                     <?php
                     }
-                    ?> 
+                    ?>
                     </ul>
                 </section>
             </nav>
@@ -78,11 +93,11 @@
                         </div>
                         <div class="modal-body">
                             <div class="modal__item">
-                                <!-- <label for="email">E-mail*</label> -->
+
                                 <input id="email" class ="modal-text login-email" type="text" name="email" placeholder="Введите e-mail" required>
                             </div>
                             <div class="modal__item form__item--last">
-                               <!--  <label for="password">Пароль*</label> -->
+
                                 <input id="password" class ="modal-text login-password" type="text" name="password" placeholder="Введите пароль" required>
                             </div>
                             <div class="form_button">
@@ -127,7 +142,7 @@
                      <li class = "nav__item-footer"><a href = "index.php?id=<?=$val['id']?>"> <?= $val['category']; ?></a></li>
                 <?php
                 }
-                ?> 
+                ?>
 
          </ul>
         </nav>
@@ -146,19 +161,19 @@
                 <a class="social__link social__link--telegramm" href="#">
                     <svg width="45" height="45" viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg"><circle stroke="#879296" fill="none" cx="13.5" cy="13.5" r="12.666"/>
                     <svg x = "4" y = "4" width="19px" height="19px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path id="telegram-1" fill="#879296" d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/></svg>
-                    </svg> 
+                    </svg>
                     </a>
-    
+
                 </li>
             </ul>
             <div class = "email">
              <p>Обратная связь:</p>
              <p class = "email__grow">deny_1999@Ukr.net</p>
-            </div> 
+            </div>
             <div class="develop">
                 <p>Разработано -  <br></p><p>denis.ua</p>
             </div>
         </div>
-    </footer> 
+    </footer>
     </body>
 </html>
